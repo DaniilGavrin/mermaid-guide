@@ -2,81 +2,114 @@
 
 Позволяют визуализировать требования и их связи с элементами системы.
 
-## Пример 1: Код для копирования
+## Пример 1: Базовое требование
 
-Чтобы использовать этот пример, скопируйте код ниже:
+### Исходный код (скопируйте для использования):
 
 ````text
-```mermaid
 requirementDiagram
+requirement "Безопасность данных" {
+    id: "REQ-001"
+    text: "Все данные должны быть зашифрованы"
+    risk: High
+    verifymethod: Test
+}
 
-    requirement "Безопасность данных" {
-        id: "REQ-001"
-        text: "Все данные должны быть зашифрованы"
-        risk: High
-        verifymethod: Test
-    }
+element "База данных" {
+    type: "Database"
+}
 
-    requirement "Резервное копирование" {
-        id: "REQ-002"
-        text: "Система должна создавать резервные копии каждые 24 часа"
-        risk: Medium
-        verifymethod: Inspection
-    }
-
-    element "База данных" {
-        type: Database
-    }
-
-    element "Сервис бэкапов" {
-        type: Service
-    }
-
-    "База данных" - satisfies -> "Безопасность данных"
-    "Сервис бэкапов" - satisfies -> "Резервное копирование"
-    "Сервис бэкапов" - traces -> "База данных"
-```
+"База данных" - satisfies -> "Безопасность данных"
 ````
 
-## Пример 2: Результат (Живая диаграмма)
-
-Так эта диаграмма будет выглядеть на сайте:
+### Результат (как это отобразится):
 
 ```mermaid
 requirementDiagram
+requirement "Безопасность данных" {
+    id: "REQ-001"
+    text: "Все данные должны быть зашифрованы"
+    risk: High
+    verifymethod: Test
+}
 
-    requirement "Безопасность данных" {
-        id: "REQ-001"
-        text: "Все данные должны быть зашифрованы"
-        risk: High
-        verifymethod: Test
-    }
+element "База данных" {
+    type: "Database"
+}
 
-    requirement "Резервное копирование" {
-        id: "REQ-002"
-        text: "Система должна создавать резервные копии каждые 24 часа"
-        risk: Medium
-        verifymethod: Inspection
-    }
-
-    element "База данных" {
-        type: Database
-    }
-
-    element "Сервис бэкапов" {
-        type: Service
-    }
-
-    "База данных" - satisfies -> "Безопасность данных"
-    "Сервис бэкапов" - satisfies -> "Резервное копирование"
-    "Сервис бэкапов" - traces -> "База данных"
+"База данных" - satisfies -> "Безопасность данных"
 ```
 
-## Синтаксис
+## Пример 2:Complex система требований
 
-- `requirement`: Определяет требование. Обязательно указывать `id`, `text`, `risk` и `verifymethod`.
-- `element`: Определяет элемент системы (компонент, сервис, базу данных).
-- Связи:
-  - `satisfies`: Элемент удовлетворяет требованию.
-  - `verifies`: Элемент проверяет требование.
-  - `traces`: Требование связано с другим элементом или требованием.
+### Исходный код:
+
+````text
+requirementDiagram
+requirement "Аутентификация" {
+    id: "REQ-002"
+    text: "Пользователь должен входить через OAuth2"
+    risk: High
+    verifymethod: Test
+}
+
+requirement "Логирование" {
+    id: "REQ-003"
+    text: "Все действия должны логироваться"
+    risk: Medium
+    verifymethod: Inspection
+}
+
+element "Auth Service" {
+    type: "Service"
+}
+
+element "Logger" {
+    type: "Module"
+}
+
+element "API Gateway" {
+    type: "Component"
+}
+
+"Auth Service" - satisfies -> "Аутентификация"
+"Logger" - satisfies -> "Логирование"
+"API Gateway" - traces -> "Аутентификация"
+"API Gateway" - traces -> "Логирование"
+````
+
+### Результат:
+
+```mermaid
+requirementDiagram
+requirement "Аутентификация" {
+    id: "REQ-002"
+    text: "Пользователь должен входить через OAuth2"
+    risk: High
+    verifymethod: Test
+}
+
+requirement "Логирование" {
+    id: "REQ-003"
+    text: "Все действия должны логироваться"
+    risk: Medium
+    verifymethod: Inspection
+}
+
+element "Auth Service" {
+    type: "Service"
+}
+
+element "Logger" {
+    type: "Module"
+}
+
+element "API Gateway" {
+    type: "Component"
+}
+
+"Auth Service" - satisfies -> "Аутентификация"
+"Logger" - satisfies -> "Логирование"
+"API Gateway" - traces -> "Аутентификация"
+"API Gateway" - traces -> "Логирование"
+```
