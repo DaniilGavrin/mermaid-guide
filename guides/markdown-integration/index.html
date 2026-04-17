@@ -1076,75 +1076,111 @@
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>```mermaid
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>erDiagram
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>    CUSTOMER ||--o{ ORDER : places
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>    ORDER ||--|{ LINE-ITEM : contains
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>    ORDER ||--|{ LINE_ITEM : contains
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>    PRODUCT ||--o{ LINE_ITEM : includes
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>    CUSTOMER {
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>        string name
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>        string email
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>    }
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>    ORDER {
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a>        int id
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a>        string status
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a>        float total
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a>    }
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a>    PRODUCT {
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>        string name
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a>        float price
+<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a>    }
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a>    LINE_ITEM {
+<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a>        int quantity
+<a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a>        float price
+<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a>    }
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>**Результат:**
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>```mermaid
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>erDiagram
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>    CUSTOMER ||--o{ ORDER : places
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>    ORDER ||--|{ LINE-ITEM : contains
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>```
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>```
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>## MkDocs Material
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>Как в нашем проекте:
-<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>
-<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>```yaml
-<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a># mkdocs.yml
-<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a>markdown_extensions:
-<a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>  - pymdownx.superfences:
-<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>      custom_fences:
-<a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a>        - name: mermaid
-<a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a>          class: mermaid
-<a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a>          format: !!python/name:mermaid2.fence_mermaid
-<a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a>
-<a href="#__codelineno-8-23" id="__codelineno-8-23" name="__codelineno-8-23"></a>plugins:
-<a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a>  - mermaid2
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>    ORDER ||--|{ LINE_ITEM : contains
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>    PRODUCT ||--o{ LINE_ITEM : includes
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>    CUSTOMER {
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>        string name
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>        string email
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>    }
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>    ORDER {
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>        int id
+<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>        string status
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a>        float total
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a>    }
+<a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>    PRODUCT {
+<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>        string name
+<a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a>        float price
+<a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a>    }
+<a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a>    LINE_ITEM {
+<a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a>        int quantity
+<a href="#__codelineno-8-23" id="__codelineno-8-23" name="__codelineno-8-23"></a>        float price
+<a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a>    }
 <a href="#__codelineno-8-25" id="__codelineno-8-25" name="__codelineno-8-25"></a>```
-<a href="#__codelineno-8-26" id="__codelineno-8-26" name="__codelineno-8-26"></a>
-<a href="#__codelineno-8-27" id="__codelineno-8-27" name="__codelineno-8-27"></a>## Pandoc
-<a href="#__codelineno-8-28" id="__codelineno-8-28" name="__codelineno-8-28"></a>
-<a href="#__codelineno-8-29" id="__codelineno-8-29" name="__codelineno-8-29"></a>Конвертация Markdown с Mermaid в PDF/HTML:
-<a href="#__codelineno-8-30" id="__codelineno-8-30" name="__codelineno-8-30"></a>
-<a href="#__codelineno-8-31" id="__codelineno-8-31" name="__codelineno-8-31"></a>```bash
-<a href="#__codelineno-8-32" id="__codelineno-8-32" name="__codelineno-8-32"></a># Установка фильтра
-<a href="#__codelineno-8-33" id="__codelineno-8-33" name="__codelineno-8-33"></a>npm install -g mermaid-filter
-<a href="#__codelineno-8-34" id="__codelineno-8-34" name="__codelineno-8-34"></a>
-<a href="#__codelineno-8-35" id="__codelineno-8-35" name="__codelineno-8-35"></a># Конвертация
-<a href="#__codelineno-8-36" id="__codelineno-8-36" name="__codelineno-8-36"></a>pandoc input.md --filter mermaid-filter -o output.pdf
-<a href="#__codelineno-8-37" id="__codelineno-8-37" name="__codelineno-8-37"></a>```
-<a href="#__codelineno-8-38" id="__codelineno-8-38" name="__codelineno-8-38"></a>
-<a href="#__codelineno-8-39" id="__codelineno-8-39" name="__codelineno-8-39"></a>## Сравнение платформ
+<a href="#__codelineno-8-26" id="__codelineno-8-26" name="__codelineno-8-26"></a>```
+<a href="#__codelineno-8-27" id="__codelineno-8-27" name="__codelineno-8-27"></a>
+<a href="#__codelineno-8-28" id="__codelineno-8-28" name="__codelineno-8-28"></a>## MkDocs Material
+<a href="#__codelineno-8-29" id="__codelineno-8-29" name="__codelineno-8-29"></a>
+<a href="#__codelineno-8-30" id="__codelineno-8-30" name="__codelineno-8-30"></a>Как в нашем проекте:
+<a href="#__codelineno-8-31" id="__codelineno-8-31" name="__codelineno-8-31"></a>
+<a href="#__codelineno-8-32" id="__codelineno-8-32" name="__codelineno-8-32"></a>```yaml
+<a href="#__codelineno-8-33" id="__codelineno-8-33" name="__codelineno-8-33"></a># mkdocs.yml
+<a href="#__codelineno-8-34" id="__codelineno-8-34" name="__codelineno-8-34"></a>markdown_extensions:
+<a href="#__codelineno-8-35" id="__codelineno-8-35" name="__codelineno-8-35"></a>  - pymdownx.superfences:
+<a href="#__codelineno-8-36" id="__codelineno-8-36" name="__codelineno-8-36"></a>      custom_fences:
+<a href="#__codelineno-8-37" id="__codelineno-8-37" name="__codelineno-8-37"></a>        - name: mermaid
+<a href="#__codelineno-8-38" id="__codelineno-8-38" name="__codelineno-8-38"></a>          class: mermaid
+<a href="#__codelineno-8-39" id="__codelineno-8-39" name="__codelineno-8-39"></a>          format: !!python/name:mermaid2.fence_mermaid
 <a href="#__codelineno-8-40" id="__codelineno-8-40" name="__codelineno-8-40"></a>
-<a href="#__codelineno-8-41" id="__codelineno-8-41" name="__codelineno-8-41"></a>| Платформа | Поддержка | Настройка | Примечания |
-<a href="#__codelineno-8-42" id="__codelineno-8-42" name="__codelineno-8-42"></a>|-----------|-----------|-----------|------------|
-<a href="#__codelineno-8-43" id="__codelineno-8-43" name="__codelineno-8-43"></a>| GitHub | ✅ Нативная | Не требуется | Автоматический рендеринг |
-<a href="#__codelineno-8-44" id="__codelineno-8-44" name="__codelineno-8-44"></a>| GitLab | ✅ Нативная | Не требуется | Полная поддержка |
-<a href="#__codelineno-8-45" id="__codelineno-8-45" name="__codelineno-8-45"></a>| Obsidian | ✅ Нативная | Минимальная | Выбор темы в настройках |
-<a href="#__codelineno-8-46" id="__codelineno-8-46" name="__codelineno-8-46"></a>| Notion | ❌ Нет | Требуется экспорт | Через изображения |
-<a href="#__codelineno-8-47" id="__codelineno-8-47" name="__codelineno-8-47"></a>| VS Code | ✅ Через расширения | Установка плагина | Несколько вариантов |
-<a href="#__codelineno-8-48" id="__codelineno-8-48" name="__codelineno-8-48"></a>| Hugo | ⚠️ Частичная | Конфигурация | Требует настройки |
-<a href="#__codelineno-8-49" id="__codelineno-8-49" name="__codelineno-8-49"></a>| Jekyll | ⚠️ Через плагины | Установка плагина | Дополнительный шаг |
-<a href="#__codelineno-8-50" id="__codelineno-8-50" name="__codelineno-8-50"></a>| Docusaurus | ✅ Через тему | Установка темы | Официальная поддержка |
-<a href="#__codelineno-8-51" id="__codelineno-8-51" name="__codelineno-8-51"></a>| MkDocs | ✅ Через плагин | Настройка YAML | Как в этом проекте |
+<a href="#__codelineno-8-41" id="__codelineno-8-41" name="__codelineno-8-41"></a>plugins:
+<a href="#__codelineno-8-42" id="__codelineno-8-42" name="__codelineno-8-42"></a>  - mermaid2
+<a href="#__codelineno-8-43" id="__codelineno-8-43" name="__codelineno-8-43"></a>```
+<a href="#__codelineno-8-44" id="__codelineno-8-44" name="__codelineno-8-44"></a>
+<a href="#__codelineno-8-45" id="__codelineno-8-45" name="__codelineno-8-45"></a>## Pandoc
+<a href="#__codelineno-8-46" id="__codelineno-8-46" name="__codelineno-8-46"></a>
+<a href="#__codelineno-8-47" id="__codelineno-8-47" name="__codelineno-8-47"></a>Конвертация Markdown с Mermaid в PDF/HTML:
+<a href="#__codelineno-8-48" id="__codelineno-8-48" name="__codelineno-8-48"></a>
+<a href="#__codelineno-8-49" id="__codelineno-8-49" name="__codelineno-8-49"></a>```bash
+<a href="#__codelineno-8-50" id="__codelineno-8-50" name="__codelineno-8-50"></a># Установка фильтра
+<a href="#__codelineno-8-51" id="__codelineno-8-51" name="__codelineno-8-51"></a>npm install -g mermaid-filter
 <a href="#__codelineno-8-52" id="__codelineno-8-52" name="__codelineno-8-52"></a>
-<a href="#__codelineno-8-53" id="__codelineno-8-53" name="__codelineno-8-53"></a>## Советы по использованию
-<a href="#__codelineno-8-54" id="__codelineno-8-54" name="__codelineno-8-54"></a>
-<a href="#__codelineno-8-55" id="__codelineno-8-55" name="__codelineno-8-55"></a>1. **Всегда проверяйте рендеринг** на целевой платформе
-<a href="#__codelineno-8-56" id="__codelineno-8-56" name="__codelineno-8-56"></a>2. **Используйте простые конструкции** для лучшей совместимости
-<a href="#__codelineno-8-57" id="__codelineno-8-57" name="__codelineno-8-57"></a>3. **Тестируйте на мобильных устройствах** — некоторые платформы могут иметь ограничения
-<a href="#__codelineno-8-58" id="__codelineno-8-58" name="__codelineno-8-58"></a>4. **Сохраняйте исходный код диаграмм** в репозитории для версионирования
-<a href="#__codelineno-8-59" id="__codelineno-8-59" name="__codelineno-8-59"></a>5. **Используйте комментарии** в сложных диаграммах:
-<a href="#__codelineno-8-60" id="__codelineno-8-60" name="__codelineno-8-60"></a>
-<a href="#__codelineno-8-61" id="__codelineno-8-61" name="__codelineno-8-61"></a>````markdown
-<a href="#__codelineno-8-62" id="__codelineno-8-62" name="__codelineno-8-62"></a>```mermaid
-<a href="#__codelineno-8-63" id="__codelineno-8-63" name="__codelineno-8-63"></a>graph TD
-<a href="#__codelineno-8-64" id="__codelineno-8-64" name="__codelineno-8-64"></a>    %% Это комментарий
-<a href="#__codelineno-8-65" id="__codelineno-8-65" name="__codelineno-8-65"></a>    A[Start] --&gt; B[Process]
-<a href="#__codelineno-8-66" id="__codelineno-8-66" name="__codelineno-8-66"></a>```
+<a href="#__codelineno-8-53" id="__codelineno-8-53" name="__codelineno-8-53"></a># Конвертация
+<a href="#__codelineno-8-54" id="__codelineno-8-54" name="__codelineno-8-54"></a>pandoc input.md --filter mermaid-filter -o output.pdf
+<a href="#__codelineno-8-55" id="__codelineno-8-55" name="__codelineno-8-55"></a>```
+<a href="#__codelineno-8-56" id="__codelineno-8-56" name="__codelineno-8-56"></a>
+<a href="#__codelineno-8-57" id="__codelineno-8-57" name="__codelineno-8-57"></a>## Сравнение платформ
+<a href="#__codelineno-8-58" id="__codelineno-8-58" name="__codelineno-8-58"></a>
+<a href="#__codelineno-8-59" id="__codelineno-8-59" name="__codelineno-8-59"></a>| Платформа | Поддержка | Настройка | Примечания |
+<a href="#__codelineno-8-60" id="__codelineno-8-60" name="__codelineno-8-60"></a>|-----------|-----------|-----------|------------|
+<a href="#__codelineno-8-61" id="__codelineno-8-61" name="__codelineno-8-61"></a>| GitHub | ✅ Нативная | Не требуется | Автоматический рендеринг |
+<a href="#__codelineno-8-62" id="__codelineno-8-62" name="__codelineno-8-62"></a>| GitLab | ✅ Нативная | Не требуется | Полная поддержка |
+<a href="#__codelineno-8-63" id="__codelineno-8-63" name="__codelineno-8-63"></a>| Obsidian | ✅ Нативная | Минимальная | Выбор темы в настройках |
+<a href="#__codelineno-8-64" id="__codelineno-8-64" name="__codelineno-8-64"></a>| Notion | ❌ Нет | Требуется экспорт | Через изображения |
+<a href="#__codelineno-8-65" id="__codelineno-8-65" name="__codelineno-8-65"></a>| VS Code | ✅ Через расширения | Установка плагина | Несколько вариантов |
+<a href="#__codelineno-8-66" id="__codelineno-8-66" name="__codelineno-8-66"></a>| Hugo | ⚠️ Частичная | Конфигурация | Требует настройки |
+<a href="#__codelineno-8-67" id="__codelineno-8-67" name="__codelineno-8-67"></a>| Jekyll | ⚠️ Через плагины | Установка плагина | Дополнительный шаг |
+<a href="#__codelineno-8-68" id="__codelineno-8-68" name="__codelineno-8-68"></a>| Docusaurus | ✅ Через тему | Установка темы | Официальная поддержка |
+<a href="#__codelineno-8-69" id="__codelineno-8-69" name="__codelineno-8-69"></a>| MkDocs | ✅ Через плагин | Настройка YAML | Как в этом проекте |
+<a href="#__codelineno-8-70" id="__codelineno-8-70" name="__codelineno-8-70"></a>
+<a href="#__codelineno-8-71" id="__codelineno-8-71" name="__codelineno-8-71"></a>## Советы по использованию
+<a href="#__codelineno-8-72" id="__codelineno-8-72" name="__codelineno-8-72"></a>
+<a href="#__codelineno-8-73" id="__codelineno-8-73" name="__codelineno-8-73"></a>1. **Всегда проверяйте рендеринг** на целевой платформе
+<a href="#__codelineno-8-74" id="__codelineno-8-74" name="__codelineno-8-74"></a>2. **Используйте простые конструкции** для лучшей совместимости
+<a href="#__codelineno-8-75" id="__codelineno-8-75" name="__codelineno-8-75"></a>3. **Тестируйте на мобильных устройствах** — некоторые платформы могут иметь ограничения
+<a href="#__codelineno-8-76" id="__codelineno-8-76" name="__codelineno-8-76"></a>4. **Сохраняйте исходный код диаграмм** в репозитории для версионирования
+<a href="#__codelineno-8-77" id="__codelineno-8-77" name="__codelineno-8-77"></a>5. **Используйте комментарии** в сложных диаграммах:
+<a href="#__codelineno-8-78" id="__codelineno-8-78" name="__codelineno-8-78"></a>
+<a href="#__codelineno-8-79" id="__codelineno-8-79" name="__codelineno-8-79"></a>````markdown
+<a href="#__codelineno-8-80" id="__codelineno-8-80" name="__codelineno-8-80"></a>```mermaid
+<a href="#__codelineno-8-81" id="__codelineno-8-81" name="__codelineno-8-81"></a>graph TD
+<a href="#__codelineno-8-82" id="__codelineno-8-82" name="__codelineno-8-82"></a>    %% Это комментарий
+<a href="#__codelineno-8-83" id="__codelineno-8-83" name="__codelineno-8-83"></a>    A[Start] --&gt; B[Process]
+<a href="#__codelineno-8-84" id="__codelineno-8-84" name="__codelineno-8-84"></a>```
 </code></pre></div></p>
 <p><strong>Результат:</strong>
 <div class="mermaid">graph TD
@@ -1163,7 +1199,7 @@
 <span class="md-icon" title="Последнее обновление">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:09:33 UTC">17 апреля 2026 г.</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:28:10 UTC">17 апреля 2026 г.</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Дата создания">
