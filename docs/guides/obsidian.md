@@ -10,6 +10,18 @@ Obsidian — мощный инструмент для работы с замет
 2. Используйте стандартный синтаксис Mermaid:
 
 ````markdown
+````markdown
+```mermaid
+graph TD
+    A[Идея] --> B[Исследование]
+    B --> C[Планирование]
+    C --> D[Реализация]
+    D --> E[Тестирование]
+    E --> F[Публикация]
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[Идея] --> B[Исследование]
@@ -25,6 +37,19 @@ graph TD
 ### Flowchart (Блок-схемы)
 
 ````markdown
+````markdown
+```mermaid
+graph LR
+    Start --> Input[/Ввод данных/]
+    Input --> Process[Обработка]
+    Process --> Decision{Условие?}
+    Decision -->|Да| Output[/Вывод/]
+    Decision -->|Нет| Process
+    Output --> End
+```
+````
+
+**Результат:**
 ```mermaid
 graph LR
     Start --> Input[/Ввод данных/]
@@ -39,6 +64,21 @@ graph LR
 ### Sequence Diagram (Диаграммы последовательностей)
 
 ````markdown
+````markdown
+```mermaid
+sequenceDiagram
+    participant U as Пользователь
+    participant O as Obsidian
+    participant M as Mermaid
+    
+    U->>O: Создать заметку
+    O->>M: Инициализировать рендерер
+    M-->>O: Готово
+    O-->>U: Показать диаграмму
+```
+````
+
+**Результат:**
 ```mermaid
 sequenceDiagram
     participant U as Пользователь
@@ -55,6 +95,29 @@ sequenceDiagram
 ### Class Diagram (Диаграммы классов)
 
 ````markdown
+````markdown
+```mermaid
+classDiagram
+    class Заметка {
+        +String title
+        +String content
+        +Date created
+        +Date modified
+        +addTag(String)
+        +removeTag(String)
+        +search(String) List~Заметка~
+    }
+    
+    class Тег {
+        +String name
+        +List~Заметка~ notes
+    }
+    
+    Заметка "1" -- "*" Тег : has
+```
+````
+
+**Результат:**
 ```mermaid
 classDiagram
     class Заметка {
@@ -79,6 +142,25 @@ classDiagram
 ### Gantt Chart (Диаграммы Ганта)
 
 ````markdown
+````markdown
+```mermaid
+gantt
+    title Проект написания книги
+    dateFormat  YYYY-MM-DD
+    section Подготовка
+    Исследование       :a1, 2024-01-01, 30d
+    План глав          :after a1, 15d
+    section Написание
+    Глава 1            :2024-02-15, 20d
+    Глава 2            :after Chapter 1, 20d
+    Глава 3            :after Chapter 2, 20d
+    section Редактура
+    Первое чтение      :2024-04-15, 15d
+    Финальная правка   :after First pass, 10d
+```
+````
+
+**Результат:**
 ```mermaid
 gantt
     title Проект написания книги
@@ -99,6 +181,25 @@ gantt
 ### Mindmap (Ментальные карты)
 
 ````markdown
+````markdown
+```mermaid
+mindmap
+  root((Проект))
+    Планирование
+      Цели
+      Ресурсы
+      Сроки
+    Разработка
+      Дизайн
+      Код
+      Тесты
+    Запуск
+      Маркетинг
+      Поддержка
+```
+````
+
+**Результат:**
 ```mermaid
 mindmap
   root((Проект))
@@ -119,6 +220,30 @@ mindmap
 ### ER Diagram (Диаграммы сущность-связь)
 
 ````markdown
+````markdown
+```mermaid
+erDiagram
+    ПОЛЬЗОВАТЕЛЬ ||--o{ ЗАМЕТКА : создает
+    ПОЛЬЗОВАТЕЛЬ {
+        int id
+        string имя
+        string email
+    }
+    ЗАМЕТКА ||--|{ ТЕГ : содержит
+    ЗАМЕТКА {
+        int id
+        string заголовок
+        text содержимое
+        date дата_создания
+    }
+    ТЕГ {
+        int id
+        string название
+    }
+```
+````
+
+**Результат:**
 ```mermaid
 erDiagram
     ПОЛЬЗОВАТЕЛЬ ||--o{ ЗАМЕТКА : создает
@@ -173,6 +298,26 @@ app.on('css-change', () => {
 Используйте Mermaid для визуализации связей между заметками:
 
 ````markdown
+````markdown
+```mermaid
+graph TD
+    A[[Главная]] --> B[Проекты]
+    A --> C[Идеи]
+    A --> D[Ресурсы]
+    B --> E[Проект 1]
+    B --> F[Проект 2]
+    C --> G[Идея 1]
+    D --> H[Статья]
+    D --> I[Видео]
+    
+    style A fill:#f9f,stroke:#333
+    style B fill:#bbf,stroke:#333
+    style C fill:#bfb,stroke:#333
+    style D fill:#fbb,stroke:#333
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[[Главная]] --> B[Проекты]
@@ -196,6 +341,20 @@ graph TD
 Хотя Obsidian не поддерживает полную интерактивность, можно использовать кликабельные ссылки:
 
 ````markdown
+````markdown
+```mermaid
+graph LR
+    A[Начало] --> B[[Документация]]
+    B --> C[[API Reference]]
+    C --> D[[Примеры]]
+    
+    click B href "https://publish.obsidian.md/your-vault/Documentation" "Открыть документацию"
+    click C href "https://publish.obsidian.md/your-vault/API" "Открыть API"
+    click D href "https://publish.obsidian.md/your-vault/Examples" "Открыть примеры"
+```
+````
+
+**Результат:**
 ```mermaid
 graph LR
     A[Начало] --> B[[Документация]]
@@ -229,6 +388,17 @@ FROM #проект
 SORT file.name
 ```
 
+````markdown
+```mermaid
+%% Генерируется вручную на основе данных выше
+graph TD
+    A[Проект Alpha] --> B[Задача 1]
+    A --> C[Задача 2]
+    A --> D[Задача 3]
+```
+````
+
+**Результат:**
 ```mermaid
 %% Генерируется вручную на основе данных выше
 graph TD
@@ -247,6 +417,20 @@ graph TD
 ````markdown
 ## Процесс разработки
 
+````markdown
+```mermaid
+graph LR
+    A[Идея] --> B[Требования]
+    B --> C[Дизайн]
+    C --> D[Разработка]
+    D --> E[Тестирование]
+    E --> F{Баги?}
+    F -->|Да| D
+    F -->|Нет| G[Релиз]
+```
+````
+
+**Результат:**
 ```mermaid
 graph LR
     A[Идея] --> B[Требования]
@@ -267,6 +451,28 @@ graph LR
 ````markdown
 ## Архитектура
 
+````markdown
+```mermaid
+graph TB
+    subgraph Client
+        A[Browser]
+        B[Mobile App]
+    end
+    
+    subgraph Server
+        C[Load Balancer]
+        D[API Server]
+        E[Database]
+    end
+    
+    A --> C
+    B --> C
+    C --> D
+    D --> E
+```
+````
+
+**Результат:**
 ```mermaid
 graph TB
     subgraph Client

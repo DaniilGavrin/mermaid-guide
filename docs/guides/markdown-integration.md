@@ -13,6 +13,18 @@ GitHub автоматически рендерит Mermaid диаграммы в
 
 ## Основная схема
 
+````markdown
+```mermaid
+graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server 1]
+    B --> D[Server 2]
+    C --> E[(Database)]
+    D --> E
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[Client] --> B[Load Balancer]
@@ -24,6 +36,23 @@ graph TD
 
 ## Процесс CI/CD
 
+````markdown
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Git as GitHub
+    participant CI as CI/CD
+    participant Deploy as Deployment
+    
+    Dev->>Git: git push
+    Git->>CI: Trigger pipeline
+    CI->>CI: Run tests
+    CI->>Deploy: Deploy if success
+    Deploy->>Deploy: Update production
+```
+````
+
+**Результат:**
 ```mermaid
 sequenceDiagram
     participant Dev as Developer
@@ -46,6 +75,23 @@ sequenceDiagram
 GitLab также поддерживает Mermaid из коробки.
 
 ```markdown
+````markdown
+```mermaid
+gantt
+    title Проект разработки
+    dateFormat YYYY-MM-DD
+    section Дизайн
+    Макеты :des1, 2024-01-01, 7d
+    Прототип :after des1, 5d
+    section Разработка
+    Фронтенд :2024-01-15, 14d
+    Бэкенд :2024-01-15, 14d
+    section Тестирование
+    QA :2024-02-01, 7d
+```
+````
+
+**Результат:**
 ```mermaid
 gantt
     title Проект разработки
@@ -71,6 +117,32 @@ Obsidian имеет встроенную поддержку Mermaid.
 2. Используйте стандартный синтаксис:
 
 ````markdown
+````markdown
+```mermaid
+classDiagram
+    class Animal {
+        +int age
+        +String gender
+        +isMammal()
+        +mate()
+    }
+    
+    class Duck {
+        +swim()
+        +quack()
+    }
+    
+    class Fish {
+        -int sizeInFeet
+        -canEat()
+    }
+    
+    Animal <|-- Duck
+    Animal <|-- Fish
+```
+````
+
+**Результат:**
 ```mermaid
 classDiagram
     class Animal {
@@ -188,6 +260,17 @@ plugins:
 3. Используйте в постах:
 
 ```markdown
+````markdown
+```mermaid
+pie
+    "Apples" : 40
+    "Oranges" : 30
+    "Bananas" : 20
+    "Other" : 10
+```
+````
+
+**Результат:**
 ```mermaid
 pie
     "Apples" : 40
@@ -221,6 +304,16 @@ module.exports = {
 3. Используйте в документах:
 
 ```markdown
+````markdown
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+```
+````
+
+**Результат:**
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ ORDER : places
@@ -280,6 +373,15 @@ pandoc input.md --filter mermaid-filter -o output.pdf
 4. **Сохраняйте исходный код диаграмм** в репозитории для версионирования
 5. **Используйте комментарии** в сложных диаграммах:
 
+````markdown
+```mermaid
+graph TD
+    %% Это комментарий
+    A[Start] --> B[Process]
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     %% Это комментарий

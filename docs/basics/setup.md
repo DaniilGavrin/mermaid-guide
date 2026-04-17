@@ -24,6 +24,15 @@ plugins:
 
 GitHub автоматически рендерит Mermaid-диаграммы в Markdown-файлах:
 
+````markdown
+```mermaid
+graph TD
+    A[GitHub] --> B[Автоматический рендеринг]
+    B --> C[Красивые диаграммы]
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[GitHub] --> B[Автоматический рендеринг]

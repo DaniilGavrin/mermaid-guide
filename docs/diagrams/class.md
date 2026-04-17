@@ -4,6 +4,23 @@
 
 ## 📐 Базовый синтаксис
 
+````markdown
+```mermaid
+classDiagram
+    class Animal {
+        +String name
+        +int age
+        +makeSound()
+    }
+    class Dog {
+        +breed
+        +bark()
+    }
+    Animal <|-- Dog
+```
+````
+
+**Результат:**
 ```mermaid
 classDiagram
     class Animal {
@@ -30,6 +47,34 @@ classDiagram
 
 ## 🏗 Практический пример
 
+````markdown
+```mermaid
+classDiagram
+    class User {
+        +id: int
+        +name: string
+        +email: string
+        +login()
+        +logout()
+    }
+    class Order {
+        +id: int
+        +items: List~Item~
+        +total: float
+        +calculateTotal()
+    }
+    class Item {
+        +name: string
+        +price: float
+        +quantity: int
+    }
+    
+    User "1" --> "0..*" Order : places
+    Order "1" *-- "1..*" Item : contains
+```
+````
+
+**Результат:**
 ```mermaid
 classDiagram
     class User {

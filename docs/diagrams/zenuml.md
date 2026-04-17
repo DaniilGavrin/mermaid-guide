@@ -4,6 +4,18 @@
 
 ## 📐 Базовый синтаксис
 
+````markdown
+```mermaid
+sequenceDiagram
+    participant A as Клиент
+    participant B as Сервер
+    
+    A->>B: Запрос
+    B-->>A: Ответ
+```
+````
+
+**Результат:**
 ```mermaid
 sequenceDiagram
     participant A as Клиент
@@ -15,6 +27,30 @@ sequenceDiagram
 
 ## 🏗 Практический пример: API вызов
 
+````markdown
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Client as Клиент
+    participant API as API Gateway
+    participant Auth as Сервис авторизации
+    participant Data as Сервис данных
+    
+    Client->>API: POST /login
+    API->>Auth: Проверка credentials
+    Auth-->>API: Токен доступа
+    API-->>Client: 200 OK + токен
+    
+    Client->>API: GET /data
+    API->>Auth: Валидация токена
+    Auth-->>API: Успех
+    API->>Data: Запрос данных
+    Data-->>API: Данные
+    API-->>Client: JSON ответ
+```
+````
+
+**Результат:**
 ```mermaid
 sequenceDiagram
     autonumber

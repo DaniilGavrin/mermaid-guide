@@ -13,6 +13,15 @@ Notion — популярная платформа для заметок и уп
 3. Используйте сервисы вроде [Indify](https://indify.co/) или [Super.so](https://super.so/) для вставки
 
 **Пример:**
+````markdown
+```mermaid
+graph TD
+    A[Notion] --> B[Виджет]
+    B --> C[Mermaid Diagram]
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[Notion] --> B[Виджет]
@@ -27,6 +36,20 @@ graph TD
 2. Экспортируйте как PNG/SVG
 3. Загрузите изображение в Notion
 
+````markdown
+```mermaid
+sequenceDiagram
+    participant User
+    participant Notion
+    participant Image
+    
+    User->>Mermaid Live: Создать диаграмму
+    Mermaid Live->>User: Экспорт PNG
+    User->>Notion: Загрузка изображения
+```
+````
+
+**Результат:**
 ```mermaid
 sequenceDiagram
     participant User
@@ -80,6 +103,21 @@ async function addDiagramToNotion(pageId, mermaidCode) {
 - **GitHub/GitLab** — рендеринг в markdown
 - **Собственный сайт** — через MkDocs + плагин mermaid2
 
+````markdown
+```mermaid
+mindmap
+  root((Выбор платформы))
+    Notion
+      Виджеты
+      Изображения
+    Obsidian
+      Нативная поддержка
+    GitHub
+      Авто-рендеринг
+```
+````
+
+**Результат:**
 ```mermaid
 mindmap
   root((Выбор платформы))

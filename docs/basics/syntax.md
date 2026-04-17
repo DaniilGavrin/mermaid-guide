@@ -4,6 +4,14 @@
 
 Любая диаграмма начинается с указания типа:
 
+````markdown
+```mermaid
+graph TD
+    A --> B
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A --> B
@@ -21,6 +29,20 @@ graph TD
 
 ## 🎨 Пример сложной диаграммы
 
+````markdown
+```mermaid
+graph TD
+    Start([Начало]) --> Input[Ввод данных]
+    Input --> Check{Проверка}
+    Check -->|OK| Process[Обработка]
+    Check -->|Error| Error[Ошибка]
+    Process --> Output[Вывод]
+    Error --> Input
+    Output --> End([Конец])
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     Start([Начало]) --> Input[Ввод данных]

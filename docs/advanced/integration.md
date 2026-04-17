@@ -29,6 +29,14 @@ plugins:
 Просто используйте блоки кода с `mermaid`:
 
 ~~~markdown
+````markdown
+```mermaid
+graph TD
+    A[GitHub] --> B[Автоматически рендерит]
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[GitHub] --> B[Автоматически рендерит]

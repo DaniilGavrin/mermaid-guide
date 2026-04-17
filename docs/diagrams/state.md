@@ -4,6 +4,17 @@
 
 ## 📐 Базовый синтаксис
 
+````markdown
+```mermaid
+stateDiagram-v2
+    [*] --> Created
+    Created --> Active: Activate
+    Active --> Closed: Close
+    Closed --> [*]
+```
+````
+
+**Результат:**
 ```mermaid
 stateDiagram-v2
     [*] --> Created
@@ -23,6 +34,25 @@ stateDiagram-v2
 
 ## 🏗 Практический пример: Заказ
 
+````markdown
+```mermaid
+stateDiagram-v2
+    [*] --> New: Создание заказа
+    New --> Paid: Оплата
+    New --> Cancelled: Отмена
+    Paid --> Shipped: Отправка
+    Shipped --> Delivered: Доставка
+    Delivered --> [*]
+    Cancelled --> [*]
+    
+    note right of New
+        Заказ создан
+        ожидает оплаты
+    end note
+```
+````
+
+**Результат:**
 ```mermaid
 stateDiagram-v2
     [*] --> New: Создание заказа

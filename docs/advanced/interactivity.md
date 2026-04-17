@@ -4,6 +4,16 @@
 
 ## 🔗 Кликабельные ссылки
 
+````markdown
+```mermaid
+graph TD
+    A[GitHub] --> B[Документация]
+    click A "https://github.com" "Открыть GitHub"
+    click B "https://mermaid.js.org" "Открыть документацию"
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[GitHub] --> B[Документация]
@@ -13,6 +23,18 @@ graph TD
 
 ## 📝 Tooltip (подсказки)
 
+````markdown
+```mermaid
+graph TD
+    A[Наведите на меня] 
+    B[И на меня тоже]
+    
+    click A callback "Это всплывающая подсказка"
+    click B href "https://example.com" "Перейти на сайт"
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[Наведите на меня] 
@@ -24,6 +46,16 @@ graph TD
 
 ## 🎯 JavaScript колбэки
 
+````markdown
+```mermaid
+graph TD
+    A[Кликни меня] --> B[Результат]
+    
+    click A call testCallback("Привет!")
+```
+````
+
+**Результат:**
 ```mermaid
 graph TD
     A[Кликни меня] --> B[Результат]

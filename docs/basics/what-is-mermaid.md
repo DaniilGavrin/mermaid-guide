@@ -13,6 +13,15 @@
 
 ## 📝 Пример использования
 
+````markdown
+```mermaid
+graph LR
+    A[Текст] --> B[Mermaid]
+    B --> C[Диаграмма]
+```
+````
+
+**Результат:**
 ```mermaid
 graph LR
     A[Текст] --> B[Mermaid]

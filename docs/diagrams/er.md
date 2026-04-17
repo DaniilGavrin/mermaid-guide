@@ -4,6 +4,15 @@ ER-диаграммы для моделирования данных и связ
 
 ## 📐 Базовый синтаксис
 
+````markdown
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+```
+````
+
+**Результат:**
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ ORDER : places
@@ -21,6 +30,39 @@ erDiagram
 
 ## 🏗 Практический пример: Интернет-магазин
 
+````markdown
+```mermaid
+erDiagram
+    CUSTOMER {
+        int id PK
+        string name
+        string email
+    }
+    ORDER {
+        int id PK
+        int customer_id FK
+        date order_date
+        float total
+    }
+    PRODUCT {
+        int id PK
+        string name
+        float price
+    }
+    ORDER_ITEM {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+    }
+    
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_ITEM : contains
+    PRODUCT ||--o{ ORDER_ITEM : "included in"
+```
+````
+
+**Результат:**
 ```mermaid
 erDiagram
     CUSTOMER {
