@@ -798,12 +798,21 @@
 <h1 id="_1">Диаграммы последовательностей</h1>
 <p>Диаграммы последовательностей показывают взаимодействие между объектами во времени.</p>
 <h2 id="_2">📐 Базовый синтаксис</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="sb">```mermaid</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="s">sequenceDiagram</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="s">    participant A as Клиент</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="s">    participant B as Сервер</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="s">    A-&gt;&gt;B: Запрос</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="s">    B--&gt;&gt;A: Ответ</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="sb">```</span>
+</code></pre></div>
+<p><strong>Результат:</strong>
 <div class="mermaid">sequenceDiagram
     participant A as Клиент
     participant B as Сервер
     A-&gt;&gt;B: Запрос
     B--&gt;&gt;A: Ответ
-</div>
+</div></p>
 <h2 id="_3">🎯 Типы стрелок</h2>
 <table>
 <thead>
@@ -842,6 +851,25 @@
 </tbody>
 </table>
 <h2 id="_4">🔄 Циклы и условия</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="sb">```mermaid</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="s">sequenceDiagram</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="s">    participant User</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="s">    participant System</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="s">    User-&gt;&gt;System: Логин</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="s">    alt Успех</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="s">        System--&gt;&gt;User: Токен</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="s">    else Ошибка</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="s">        System--&gt;&gt;User: Сообщение об ошибке</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="s">    end</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="s">    loop 3 раза</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="s">        User-&gt;&gt;System: Запрос данных</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="s">        System--&gt;&gt;User: Данные</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="s">    end</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="sb">```</span>
+</code></pre></div>
+<p><strong>Результат:</strong>
 <div class="mermaid">sequenceDiagram
     participant User
     participant System
@@ -857,8 +885,26 @@
         User-&gt;&gt;System: Запрос данных
         System--&gt;&gt;User: Данные
     end
-</div>
+</div></p>
 <h2 id="http">🏗 Практический пример: HTTP запрос</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="sb">```mermaid</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="s">sequenceDiagram</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="s">    autonumber</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="s">    participant Browser as Браузер</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="s">    participant Server as Сервер</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="s">    participant DB as База данных</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="s">    Browser-&gt;&gt;Server: GET /api/users</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="s">    activate Server</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="s">    Server-&gt;&gt;DB: SELECT * FROM users</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="s">    activate DB</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="s">    DB--&gt;&gt;Server: Данные пользователей</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="s">    deactivate DB</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="s">    Server--&gt;&gt;Browser: JSON ответ</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="s">    deactivate Server</span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="sb">```</span>
+</code></pre></div>
+<p><strong>Результат:</strong>
 <div class="mermaid">sequenceDiagram
     autonumber
     participant Browser as Браузер
@@ -873,7 +919,7 @@
     deactivate DB
     Server--&gt;&gt;Browser: JSON ответ
     deactivate Server
-</div>
+</div></p>
 <hr/>
 <p><em>Перейдите к <a href="../class/">диаграммам классов</a> для изучения следующего типа.</em></p>
 <aside class="md-source-file">
@@ -881,7 +927,7 @@
 <span class="md-icon" title="Последнее обновление">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 09:01:47 UTC">17 апреля 2026 г.</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:09:33 UTC">17 апреля 2026 г.</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Дата создания">

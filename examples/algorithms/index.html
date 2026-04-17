@@ -789,6 +789,24 @@
 <h1 id="_1">Алгоритмы</h1>
 <p>Визуализация алгоритмов и структур данных с помощью Mermaid.</p>
 <h2 id="_2">🔍 Бинарный поиск</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="sb">```mermaid</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="s">graph TD</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="s">    A[Начало] --&gt; B{Массив пуст?}</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="s">    B --&gt;|Да| Z[Не найдено]</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="s">    B --&gt;|Нет| C[Найти середину]</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="s">    C --&gt; D{Средний = искомому?}</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="s">    D --&gt;|Да| E[Найдено!]</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="s">    D --&gt;|Больше| F[Искать слева]</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="s">    D --&gt;|Меньше| G[Искать справа]</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="s">    F --&gt; H[Обновить right]</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="s">    G --&gt; I[Обновить left]</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="s">    H --&gt; J{left &lt;= right?}</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="s">    I --&gt; J</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="s">    J --&gt;|Да| C</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="s">    J --&gt;|Нет| Z</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sb">```</span>
+</code></pre></div>
+<p><strong>Результат:</strong>
 <div class="mermaid">graph TD
     A[Начало] --&gt; B{Массив пуст?}
     B --&gt;|Да| Z[Не найдено]
@@ -803,8 +821,30 @@
     I --&gt; J
     J --&gt;|Да| C
     J --&gt;|Нет| Z
-</div>
+</div></p>
 <h2 id="_3">📊 Сортировка пузырьком</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="sb">```mermaid</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="s">sequenceDiagram</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="s">    participant Array as Массив</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="s">    participant Outer as Внешний цикл</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="s">    participant Inner as Внутренний цикл</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="s">    participant Swap as Обмен</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="s">    Outer-&gt;&gt;Array: i = 0</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="s">    loop пока i &lt; n</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="s">        Inner-&gt;&gt;Array: j = 0</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="s">        loop пока j &lt; n-i-1</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="s">            Array-&gt;&gt;Array: Сравнить arr[j] и arr[j+1]</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="s">            alt arr[j] &gt; arr[j+1]</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="s">                Swap-&gt;&gt;Array: Поменять местами</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="s">            end</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="s">            Inner-&gt;&gt;Inner: j++</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="s">        end</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="s">        Outer-&gt;&gt;Outer: i++</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="s">    end</span>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="sb">```</span>
+</code></pre></div>
+<p><strong>Результат:</strong>
 <div class="mermaid">sequenceDiagram
     participant Array as Массив
     participant Outer as Внешний цикл
@@ -823,8 +863,27 @@
         end
         Outer-&gt;&gt;Outer: i++
     end
-</div>
+</div></p>
 <h2 id="bfs">🌳 Обход дерева (BFS)</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="sb">```mermaid</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="s">graph TD</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="s">    A[Корень] --&gt; B[Левый]</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="s">    A --&gt; C[Правый]</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="s">    B --&gt; D[Л-Л]</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="s">    B --&gt; E[Л-П]</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="s">    C --&gt; F[П-Л]</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="s">    C --&gt; G[П-П]</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="s">    style A fill:#f9f,stroke:#333</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="s">    style B fill:#bbf,stroke:#333</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="s">    style C fill:#bbf,stroke:#333</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="s">    style D fill:#bfb,stroke:#333</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="s">    style E fill:#bfb,stroke:#333</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="s">    style F fill:#bfb,stroke:#333</span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="s">    style G fill:#bfb,stroke:#333</span>
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="sb">```</span>
+</code></pre></div>
+<p><strong>Результат:</strong>
 <div class="mermaid">graph TD
     A[Корень] --&gt; B[Левый]
     A --&gt; C[Правый]
@@ -840,7 +899,7 @@
     style E fill:#bfb,stroke:#333
     style F fill:#bfb,stroke:#333
     style G fill:#bfb,stroke:#333
-</div>
+</div></p>
 <p><strong>Порядок обхода BFS:</strong> A → B → C → D → E → F → G</p>
 <hr/>
 <p><em>Перейдите к <a href="../business-processes/">бизнес-процессам</a> для примеров из бизнеса.</em></p>
@@ -849,7 +908,7 @@
 <span class="md-icon" title="Последнее обновление">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 09:01:47 UTC">17 апреля 2026 г.</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:09:33 UTC">17 апреля 2026 г.</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Дата создания">
