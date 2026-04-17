@@ -4,7 +4,8 @@
 
 ## 📐 Базовый синтаксис
 
-````markdown
+**Пример кода:**
+```markdown
 ```mermaid
 requirementDiagram
     requirement "Авторизация" {
@@ -14,7 +15,7 @@ requirementDiagram
         verifymethod: test
     }
 ```
-````
+```
 
 **Результат:**
 ```mermaid
@@ -29,7 +30,8 @@ requirementDiagram
 
 ## 🏗 Практический пример: Система заказов
 
-````markdown
+**Пример кода:**
+```markdown
 ```mermaid
 requirementDiagram
     requirement "Создание заказа" {
@@ -56,7 +58,7 @@ requirementDiagram
     "Создание заказа" - satisfies -> "Оплата заказа"
     "Оплата заказа" - traces -> "Email уведомление"
 ```
-````
+```
 
 **Результат:**
 ```mermaid

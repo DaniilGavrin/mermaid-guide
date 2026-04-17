@@ -219,8 +219,8 @@ mindmap
 
 ### ER Diagram (Диаграммы сущность-связь)
 
-````markdown
-````markdown
+**Пример кода:**
+```markdown
 ```mermaid
 erDiagram
     ПОЛЬЗОВАТЕЛЬ ||--o{ ЗАМЕТКА : создает
@@ -241,7 +241,7 @@ erDiagram
         string название
     }
 ```
-````
+```
 
 **Результат:**
 ```mermaid
@@ -264,7 +264,6 @@ erDiagram
         string название
     }
 ```
-````
 
 ## Настройка тем
 
