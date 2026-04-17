@@ -20,10 +20,13 @@ theme:
     - content.code.annotate
 
 markdown_extensions:
-  - mermaid2
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
