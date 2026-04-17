@@ -24,7 +24,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#requirement-diagram">
           Перейти к содержанию
         </a>
 </div>
@@ -451,22 +451,66 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
       
-        📐 Базовый синтаксис
+        Пример 1: Базовое требование
+      
+    </span>
+</a>
+<nav aria-label="Пример 1: Базовое требование" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        Исходный код:
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        🏗 Практический пример: Система заказов
+        Результат:
       
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2">
+<span class="md-ellipsis">
+      
+        Пример 2: Сложная система требований
+      
+    </span>
+</a>
+<nav aria-label="Пример 2: Сложная система требований" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        Исходный код:
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        Результат:
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -777,92 +821,90 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="_1">Диаграммы требований</h1>
-<p>Диаграммы требований для документирования функциональных и нефункциональных требований.</p>
-<h2 id="_2">📐 Базовый синтаксис</h2>
-<p><strong>Пример кода:</strong>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>```mermaid
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>requirementDiagram
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    requirement "Авторизация" {
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>        id: 1
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        text: Пользователь должен иметь возможность войти
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>        risk: high
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        verifymethod: test
+<h1 id="requirement-diagram">Диаграммы требований (Requirement Diagram)</h1>
+<p>Позволяют визуализировать требования и их связи с элементами системы.</p>
+<h2 id="1">Пример 1: Базовое требование</h2>
+<h3 id="_1">Исходный код:</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>requirementDiagram
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    requirement "Безопасность данных" {
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>        id: REQ-001
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        text: "Все данные должны быть зашифрованы"
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>        risk: High
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        verifymethod: Test
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    }
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    element "База данных" {
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        type: Database
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>    }
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    "База данных" - satisfies -&gt; "Безопасность данных"
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>**Результат:**
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>```mermaid
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>requirementDiagram
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    requirement "Авторизация" {
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>        id: 1
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>        text: Пользователь должен иметь возможность войти
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>        risk: high
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>        verifymethod: test
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    }
-</code></pre></div></p>
-<h2 id="_3">🏗 Практический пример: Система заказов</h2>
-<p><strong>Пример кода:</strong>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>```mermaid
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>requirementDiagram
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    requirement "Создание заказа" {
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>        id: 1
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>        text: Пользователь может создать заказ
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>        risk: high
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>        verifymethod: test
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    }
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    requirement "Оплата заказа" {
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>        id: 2
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>        text: Пользователь может оплатить заказ
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>        risk: high
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>        verifymethod: test
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>    }
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>    functionalRequirement "Email уведомление" {
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>        id: 3
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>        text: Система отправляет email после оплаты
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>        risk: medium
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>        verifymethod: inspection
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>    }
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>    "Создание заказа" - satisfies -&gt; "Оплата заказа"
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>    "Оплата заказа" - traces -&gt; "Email уведомление"
+<h3 id="_2">Результат:</h3>
+<div class="mermaid">requirementDiagram
+
+    requirement "Безопасность данных" {
+        id: REQ-001
+        text: "Все данные должны быть зашифрованы"
+        risk: High
+        verifymethod: Test
+    }
+
+    element "База данных" {
+        type: Database
+    }
+
+    "База данных" - satisfies -&gt; "Безопасность данных"
+</div>
+<h2 id="2">Пример 2: Сложная система требований</h2>
+<h3 id="_3">Исходный код:</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>requirementDiagram
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    requirement "Высокая доступность" {
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>        id: REQ-002
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>        text: "Система должна работать 99.9% времени"
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>        risk: Medium
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>        verifymethod: Analysis
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    }
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>    element "Балансировщик" {
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>        type: Service
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    }
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    element "Кластер БД" {
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>        type: Database
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>    }
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>    "Балансировщик" - satisfies -&gt; "Высокая доступность"
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>    "Кластер БД" - satisfies -&gt; "Высокая доступность"
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>**Результат:**
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>```mermaid
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>requirementDiagram
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    requirement "Создание заказа" {
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>        id: 1
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>        text: Пользователь может создать заказ
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>        risk: high
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>        verifymethod: test
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    }
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>    requirement "Оплата заказа" {
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>        id: 2
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>        text: Пользователь может оплатить заказ
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>        risk: high
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>        verifymethod: test
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>    }
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>    functionalRequirement "Email уведомление" {
-<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>        id: 3
-<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>        text: Система отправляет email после оплаты
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        risk: medium
-<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>        verifymethod: inspection
-<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a>    }
-<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>
-<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a>    "Создание заказа" - satisfies -&gt; "Оплата заказа"
-<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>    "Оплата заказа" - traces -&gt; "Email уведомление"
-</code></pre></div></p>
-<hr/>
-<p><em>Перейдите к <a href="../../advanced/styling/">продвинутым техникам</a> для изучения стилизации.</em></p>
+<h3 id="_4">Результат:</h3>
+<div class="mermaid">requirementDiagram
+
+    requirement "Высокая доступность" {
+        id: REQ-002
+        text: "Система должна работать 99.9% времени"
+        risk: Medium
+        verifymethod: Analysis
+    }
+
+    element "Балансировщик" {
+        type: Service
+    }
+
+    element "Кластер БД" {
+        type: Database
+    }
+
+    "Балансировщик" - satisfies -&gt; "Высокая доступность"
+    "Кластер БД" - satisfies -&gt; "Высокая доступность"
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Последнее обновление">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:33:18 UTC">17 апреля 2026 г.</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:39:09 UTC">17 апреля 2026 г.</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Дата создания">
@@ -896,5 +938,6 @@
 </div>
 <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
 <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-</body>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.6.1/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
 </html>

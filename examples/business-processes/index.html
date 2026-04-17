@@ -599,10 +599,20 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#user-journey">
+<span class="md-ellipsis">
+      
+        Воронка продаж (User Journey)
+      
+    </span>
+</a>
+<nav aria-label="Воронка продаж (User Journey)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        🛒 Процесс покупки
+        Исходный код (скопируйте):
       
     </span>
 </a>
@@ -611,19 +621,44 @@
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        👥 Процесс найма сотрудника
+        Результат:
       
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        📈 Воронка продаж
+        Процесс согласования документа
       
     </span>
 </a>
+<nav aria-label="Процесс согласования документа" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        Исходный код:
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        Результат:
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -787,119 +822,60 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="-">Бизнес-процессы</h1>
-<p>Моделирование бизнес-процессов с помощью Mermaid.</p>
-<h2 id="_1">🛒 Процесс покупки</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="sb">```mermaid</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="s">graph TD</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="s">    A[Клиент заходит на сайт] --&gt; B[Выбирает товар]</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="s">    B --&gt; C{Товар в наличии?}</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="s">    C --&gt;|Да| D[Добавляет в корзину]</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="s">    C --&gt;|Нет| E[Сообщение о недоступности]</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="s">    E --&gt; B</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="s">    D --&gt; F[Оформляет заказ]</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="s">    F --&gt; G{Оплата успешна?}</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="s">    G --&gt;|Да| H[Подтверждение заказа]</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="s">    G --&gt;|Нет| I[Ошибка оплаты]</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="s">    I --&gt; F</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="s">    H --&gt; J[Отправка товара]</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="s">    J --&gt; K[Получение клиентом]</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sb">```</span>
+<p>Примеры визуализации бизнес-процессов с помощью Mermaid.</p>
+<h2 id="user-journey">Воронка продаж (User Journey)</h2>
+<p>Визуализация пути клиента от знакомства до покупки.</p>
+<h3 id="_1">Исходный код (скопируйте):</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>journey
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    title Воронка продаж интернет-магазина
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    section Узнавание
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>      Видит рекламу: 5: Пользователь
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>      Переходит на сайт: 4: Пользователь
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    section Интерес
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>      Просмотр товаров: 3: Пользователь
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>      Добавление в корзину: 2: Пользователь
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    section Покупка
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>      Оформление заказа: 1: Пользователь
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>      Оплата: 1: Пользователь
 </code></pre></div>
-<p><strong>Результат:</strong>
-<div class="mermaid">graph TD
-    A[Клиент заходит на сайт] --&gt; B[Выбирает товар]
-    B --&gt; C{Товар в наличии?}
-    C --&gt;|Да| D[Добавляет в корзину]
-    C --&gt;|Нет| E[Сообщение о недоступности]
-    E --&gt; B
-    D --&gt; F[Оформляет заказ]
-    F --&gt; G{Оплата успешна?}
-    G --&gt;|Да| H[Подтверждение заказа]
-    G --&gt;|Нет| I[Ошибка оплаты]
-    I --&gt; F
-    H --&gt; J[Отправка товара]
-    J --&gt; K[Получение клиентом]
-</div></p>
-<h2 id="_2">👥 Процесс найма сотрудника</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="sb">```mermaid</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="s">sequenceDiagram</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="s">    participant HR as HR</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="s">    participant Candidate as Кандидат</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="s">    participant Tech as Тех.собеседование</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="s">    participant Manager as Руководитель</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="s">    HR-&gt;&gt;Candidate: Первичное интервью</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="s">    HR-&gt;&gt;Tech: Направление на тех.собеседование</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="s">    Tech-&gt;&gt;Candidate: Техническое интервью</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="s">    Tech--&gt;&gt;HR: Результат</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="s">    alt Успешно</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="s">        HR-&gt;&gt;Manager: Согласование</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="s">        Manager-&gt;&gt;Candidate: Офер</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="s">        Candidate--&gt;&gt;HR: Решение</span>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="s">    else Отказ</span>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="s">        HR-&gt;&gt;Candidate: Уведомление об отказе</span>
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="s">    end</span>
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="sb">```</span>
+<h3 id="_2">Результат:</h3>
+<div class="mermaid">journey
+    title Воронка продаж интернет-магазина
+    section Узнавание
+      Видит рекламу: 5: Пользователь
+      Переходит на сайт: 4: Пользователь
+    section Интерес
+      Просмотр товаров: 3: Пользователь
+      Добавление в корзину: 2: Пользователь
+    section Покупка
+      Оформление заказа: 1: Пользователь
+      Оплата: 1: Пользователь
+</div>
+<h2 id="_3">Процесс согласования документа</h2>
+<h3 id="_4">Исходный код:</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>flowchart LR
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    A[Создание документа] --&gt; B{Менеджер}
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    B --&gt;|Одобрено| C[Юрист]
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    B --&gt;|Отклонено| A
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    C --&gt;|Одобрено| D[Директор]
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    C --&gt;|Отклонено| A
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    D --&gt;|Подписано| E[Архив]
 </code></pre></div>
-<p><strong>Результат:</strong>
-<div class="mermaid">sequenceDiagram
-    participant HR as HR
-    participant Candidate as Кандидат
-    participant Tech as Тех.собеседование
-    participant Manager as Руководитель
-
-    HR-&gt;&gt;Candidate: Первичное интервью
-    HR-&gt;&gt;Tech: Направление на тех.собеседование
-    Tech-&gt;&gt;Candidate: Техническое интервью
-    Tech--&gt;&gt;HR: Результат
-
-    alt Успешно
-        HR-&gt;&gt;Manager: Согласование
-        Manager-&gt;&gt;Candidate: Офер
-        Candidate--&gt;&gt;HR: Решение
-    else Отказ
-        HR-&gt;&gt;Candidate: Уведомление об отказе
-    end
-</div></p>
-<h2 id="_3">📈 Воронка продаж</h2>
-<p>Визуализация пути клиента через этапы воронки с использованием User Journey.</p>
-<p><strong>Пример кода:</strong>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>```mermaid
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>journey
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    title Воронка продаж
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>    section Узнавание
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>      Видит рекламу: 5: Пользователь
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>      Переходит на сайт: 4: Пользователь
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    section Интерес
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>      Просмотр товаров: 3: Пользователь
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>      Добавление в корзину: 2: Пользователь
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    section Покупка
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>      Оформление заказа: 1: Пользователь
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>      Оплата: 1: Пользователь
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>**Результат:**
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>```mermaid
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>journey
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    title Воронка продаж
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    section Узнавание
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>      Видит рекламу: 5: Пользователь
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>      Переходит на сайт: 4: Пользователь
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    section Интерес
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>      Просмотр товаров: 3: Пользователь
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>      Добавление в корзину: 2: Пользователь
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>    section Покупка
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>      Оформление заказа: 1: Пользователь
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>      Оплата: 1: Пользователь
-</code></pre></div></p>
-<hr/>
-<p><em>Поздравляем! Вы изучили все разделы руководства!</em></p>
+<h3 id="_5">Результат:</h3>
+<div class="mermaid">flowchart LR
+    A[Создание документа] --&gt; B{Менеджер}
+    B --&gt;|Одобрено| C[Юрист]
+    B --&gt;|Отклонено| A
+    C --&gt;|Одобрено| D[Директор]
+    C --&gt;|Отклонено| A
+    D --&gt;|Подписано| E[Архив]
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Последнее обновление">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:33:18 UTC">17 апреля 2026 г.</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:39:09 UTC">17 апреля 2026 г.</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Дата создания">
