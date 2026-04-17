@@ -290,17 +290,25 @@ docs/
 ````markdown
 <!-- DIAGRAM: Architecture Overview -->
 <!-- UPDATED: 2024-01-15 -->
-````markdown
 ```mermaid
-...
+graph TD
+    A[Frontend] --> B[API Gateway]
+    B --> C[Microservice 1]
+    B --> D[Microservice 2]
+    C --> E[(Database)]
+    D --> E
 ```
 ````
 
 **Результат:**
 ```mermaid
-...
+graph TD
+    A[Frontend] --> B[API Gateway]
+    B --> C[Microservice 1]
+    B --> D[Microservice 2]
+    C --> E[(Database)]
+    D --> E
 ```
-````
 
 ### 3. Оптимизация
 

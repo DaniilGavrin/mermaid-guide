@@ -47,18 +47,18 @@ C4Context
 
 ````markdown
 ```mermaid
-graph LR
-    subproducers[Производители]
+flowchart LR
+    subgraph producers[Производители]
         A[Сервис A]
         B[Сервис B]
     end
     
-    subgraphkafka[Apache Kafka]
+    subgraph kafka[Apache Kafka]
         T1[Топик 1]
         T2[Топик 2]
     end
     
-    subgraphconsumers[Потребители]
+    subgraph consumers[Потребители]
         C[Сервис C]
         D[Сервис D]
     end
@@ -72,18 +72,18 @@ graph LR
 
 **Результат:**
 ```mermaid
-graph LR
-    subproducers[Производители]
+flowchart LR
+    subgraph producers[Производители]
         A[Сервис A]
         B[Сервис B]
     end
     
-    subgraphkafka[Apache Kafka]
+    subgraph kafka[Apache Kafka]
         T1[Топик 1]
         T2[Топик 2]
     end
     
-    subgraphconsumers[Потребители]
+    subgraph consumers[Потребители]
         C[Сервис C]
         D[Сервис D]
     end

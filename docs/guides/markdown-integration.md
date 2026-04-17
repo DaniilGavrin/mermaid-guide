@@ -308,8 +308,26 @@ module.exports = {
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
+        string email
+    }
+    ORDER {
+        int id
+        string status
+        float total
+    }
+    PRODUCT {
+        string name
+        float price
+    }
+    LINE_ITEM {
+        int quantity
+        float price
+    }
 ```
 ````
 
@@ -317,8 +335,26 @@ erDiagram
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
+        string email
+    }
+    ORDER {
+        int id
+        string status
+        float total
+    }
+    PRODUCT {
+        string name
+        float price
+    }
+    LINE_ITEM {
+        int quantity
+        float price
+    }
 ```
 ```
 
