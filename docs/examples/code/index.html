@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Diagrams - Vanilla JS Example</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      color: #3498db;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .mermaid {
+      background: #fafafa;
+      padding: 1rem;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      overflow-x: auto;
+    }
+
+    .controls {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    button.secondary {
+      background: #95a5a6;
+    }
+
+    button.secondary:hover {
+      background: #7f8c8d;
+    }
+
+    .code-block {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .error {
+      background: #fee;
+      color: #c0392b;
+      padding: 1rem;
+      border-radius: 4px;
+      border-left: 4px solid #c0392b;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: #7f8c8d;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 1rem;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      
+      body {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 Mermaid Diagrams</h1>
+    <p class="subtitle">Пример использования с чистым JavaScript</p>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Flowchart Example -->
+      <div class="card">
+        <h2>📊 Блок-схема (Flowchart)</h2>
+        <div class="mermaid" id="flowchart">
+          graph TD
+            A[Начало] --> B{Решение}
+            B -->|Да| C[Действие 1]
+            B -->|Нет| D[Действие 2]
+            C --> E[Конец]
+            D --> E
+        </div>
+        <div class="controls">
+          <button onclick="refreshDiagram('flowchart')">Обновить</button>
+          <button class="secondary" onclick="showCode('flowchart')">Показать код</button>
+        </div>
+        <div class="code-block" id="flowchart-code" style="display:none;">
+graph TD
+  A[Начало] --> B{Решение}
+  B -->|Да| C[Действие 1]
+  B -->|Нет| D[Действие 2]
+  C --> E[Конец]
+  D --> E
+        </div>
+      </div>
+
+      <!-- Sequence Diagram Example -->
+      <div class="card">
+        <h2>🔄 Диаграмма последовательностей</h2>
+        <div class="mermaid" id="sequence">
+          sequenceDiagram
+            participant User as Пользователь
+            participant API as API
+            participant DB as База данных
+            
+            User->>API: Запрос данных
+            API->>DB: SELECT * FROM users
+            DB-->>API: Данные
+            API-->>User: JSON ответ
+        </div>
+        <div class="controls">
+          <button onclick="refreshDiagram('sequence')">Обновить</button>
+          <button class="secondary" onclick="showCode('sequence')">Показать код</button>
+        </div>
+        <div class="code-block" id="sequence-code" style="display:none;">
+sequenceDiagram
+  participant User as Пользователь
+  participant API as API
+  participant DB as База данных
+  
+  User->>API: Запрос данных
+  API->>DB: SELECT * FROM users
+  DB-->>API: Данные
+  API-->>User: JSON ответ
+        </div>
+      </div>
+
+      <!-- Class Diagram Example -->
+      <div class="card">
+        <h2>🏗️ Диаграмма классов</h2>
+        <div class="mermaid" id="class">
+          classDiagram
+            class Animal {
+              +int age
+              +String gender
+              +isMammal()
+              +mate()
+            }
+            class Duck {
+              +String beakColor
+              +swim()
+              +quack()
+            }
+            class Fish {
+              -int sizeInFeet
+              -canEat()
+            }
+            Animal <|-- Duck
+            Animal <|-- Fish
+        </div>
+        <div class="controls">
+          <button onclick="refreshDiagram('class')">Обновить</button>
+          <button class="secondary" onclick="showCode('class')">Показать код</button>
+        </div>
+        <div class="code-block" id="class-code" style="display:none;">
+classDiagram
+  class Animal {
+    +int age
+    +String gender
+    +isMammal()
+    +mate()
+  }
+  class Duck {
+    +String beakColor
+    +swim()
+    +quack()
+  }
+  class Fish {
+    -int sizeInFeet
+    -canEat()
+  }
+  Animal <|-- Duck
+  Animal <|-- Fish
+        </div>
+      </div>
+
+      <!-- Dynamic Diagram Example -->
+      <div class="card">
+        <h2>⚡ Динамическая диаграмма</h2>
+        <div class="mermaid" id="dynamic">
+          graph LR
+            Start --> Process1
+            Process1 --> Process2
+            Process2 --> End
+        </div>
+        <div class="controls">
+          <button onclick="addNode()">Добавить узел</button>
+          <button class="secondary" onclick="resetDynamic()">Сбросить</button>
+          <button class="secondary" onclick="showCode('dynamic')">Показать код</button>
+        </div>
+        <div class="code-block" id="dynamic-code" style="display:none;">
+<!-- Генерируется динамически -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Пример использования Mermaid.js с ванильным JavaScript | 
+       <a href="https://mermaid.js.org/" target="_blank">Документация Mermaid</a></p>
+  </footer>
+
+  <!-- Подключаем Mermaid через CDN -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    
+    // Инициализация Mermaid
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      securityLevel: 'loose',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    });
+
+    // Делаем функции доступными глобально
+    window.refreshDiagram = async function(id) {
+      const element = document.getElementById(id);
+      if (!element) return;
+      
+      // Показываем индикатор загрузки
+      const originalContent = element.innerHTML;
+      element.innerHTML = '<div class="loading"><div class="spinner"></div><p>Перезагрузка...</p></div>';
+      
+      try {
+        // Небольшая задержка для визуального эффекта
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        // Перерисовка диаграммы
+        const { svg } = await mermaid.render(id + '-new', element.getAttribute('data-code') || element.textContent.trim());
+        element.innerHTML = svg;
+      } catch (error) {
+        element.innerHTML = `<div class="error">Ошибка: ${error.message}</div>`;
+        console.error('Error rendering diagram:', error);
+      }
+    };
+
+    window.showCode = function(id) {
+      const codeBlock = document.getElementById(`${id}-code`);
+      if (codeBlock) {
+        codeBlock.style.display = codeBlock.style.display === 'none' ? 'block' : 'none';
+      }
+    };
+
+    // Динамическая диаграмма
+    let nodeCount = 2;
+    
+    window.addNode = async function() {
+      nodeCount++;
+      const dynamicElement = document.getElementById('dynamic');
+      const codeElement = document.getElementById('dynamic-code');
+      
+      let diagramCode = 'graph LR\n  Start';
+      for (let i = 1; i <= nodeCount; i++) {
+        diagramCode += `\n  Process${i-1} --> Process${i}`;
+        if (i < nodeCount) {
+          diagramCode += `\n  Process${i}`;
+        } else {
+          diagramCode += '\n  Process' + i + ' --> End';
+        }
+      }
+      
+      dynamicElement.setAttribute('data-code', diagramCode);
+      if (codeElement) {
+        codeElement.textContent = diagramCode;
+      }
+      
+      await window.refreshDiagram('dynamic');
+    };
+
+    window.resetDynamic = async function() {
+      nodeCount = 2;
+      const dynamicElement = document.getElementById('dynamic');
+      const defaultCode = `graph LR
+  Start --> Process1
+  Process1 --> Process2
+  Process2 --> End`;
+      
+      dynamicElement.textContent = defaultCode;
+      dynamicElement.removeAttribute('data-code');
+      
+      await window.refreshDiagram('dynamic');
+    };
+
+    // Сохраняем исходный код диаграмм для последующего отображения
+    document.addEventListener('DOMContentLoaded', () => {
+      ['flowchart', 'sequence', 'class'].forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.setAttribute('data-code', element.textContent.trim());
+        }
+      });
+    });
+  </script>
+</body>
+</html>
