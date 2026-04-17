@@ -1,93 +1,93 @@
-# Диаграммы требований
+# Диаграммы требований (Requirement Diagram)
 
-Диаграммы требований для документирования функциональных и нефункциональных требований.
+Позволяют визуализировать требования и их связи с элементами системы.
 
-## 📐 Базовый синтаксис
+## Пример 1: Базовое требование
 
-**Пример кода:**
-```markdown
+### Исходный код:
+
+```text
+requirementDiagram
+
+    requirement "Безопасность данных" {
+        id: REQ-001
+        text: "Все данные должны быть зашифрованы"
+        risk: High
+        verifymethod: Test
+    }
+
+    element "База данных" {
+        type: Database
+    }
+
+    "База данных" - satisfies -> "Безопасность данных"
+```
+
+### Результат:
+
 ```mermaid
 requirementDiagram
-    requirement "Авторизация" {
-        id: 1
-        text: Пользователь должен иметь возможность войти
-        risk: high
-        verifymethod: test
+
+    requirement "Безопасность данных" {
+        id: REQ-001
+        text: "Все данные должны быть зашифрованы"
+        risk: High
+        verifymethod: Test
     }
-```
+
+    element "База данных" {
+        type: Database
+    }
+
+    "База данных" - satisfies -> "Безопасность данных"
 ```
 
-**Результат:**
+## Пример 2: Сложная система требований
+
+### Исходный код:
+
+```text
+requirementDiagram
+
+    requirement "Высокая доступность" {
+        id: REQ-002
+        text: "Система должна работать 99.9% времени"
+        risk: Medium
+        verifymethod: Analysis
+    }
+
+    element "Балансировщик" {
+        type: Service
+    }
+
+    element "Кластер БД" {
+        type: Database
+    }
+
+    "Балансировщик" - satisfies -> "Высокая доступность"
+    "Кластер БД" - satisfies -> "Высокая доступность"
+```
+
+### Результат:
+
 ```mermaid
 requirementDiagram
-    requirement "Авторизация" {
-        id: 1
-        text: Пользователь должен иметь возможность войти
-        risk: high
-        verifymethod: test
+
+    requirement "Высокая доступность" {
+        id: REQ-002
+        text: "Система должна работать 99.9% времени"
+        risk: Medium
+        verifymethod: Analysis
     }
+
+    element "Балансировщик" {
+        type: Service
+    }
+
+    element "Кластер БД" {
+        type: Database
+    }
+
+    "Балансировщик" - satisfies -> "Высокая доступность"
+    "Кластер БД" - satisfies -> "Высокая доступность"
 ```
-
-## 🏗 Практический пример: Система заказов
-
-**Пример кода:**
-```markdown
-```mermaid
-requirementDiagram
-    requirement "Создание заказа" {
-        id: 1
-        text: Пользователь может создать заказ
-        risk: high
-        verifymethod: test
-    }
-    
-    requirement "Оплата заказа" {
-        id: 2
-        text: Пользователь может оплатить заказ
-        risk: high
-        verifymethod: test
-    }
-    
-    functionalRequirement "Email уведомление" {
-        id: 3
-        text: Система отправляет email после оплаты
-        risk: medium
-        verifymethod: inspection
-    }
-    
-    "Создание заказа" - satisfies -> "Оплата заказа"
-    "Оплата заказа" - traces -> "Email уведомление"
-```
-```
-
-**Результат:**
-```mermaid
-requirementDiagram
-    requirement "Создание заказа" {
-        id: 1
-        text: Пользователь может создать заказ
-        risk: high
-        verifymethod: test
-    }
-    
-    requirement "Оплата заказа" {
-        id: 2
-        text: Пользователь может оплатить заказ
-        risk: high
-        verifymethod: test
-    }
-    
-    functionalRequirement "Email уведомление" {
-        id: 3
-        text: Система отправляет email после оплаты
-        risk: medium
-        verifymethod: inspection
-    }
-    
-    "Создание заказа" - satisfies -> "Оплата заказа"
-    "Оплата заказа" - traces -> "Email уведомление"
-```
-
----
-
-*Перейдите к [продвинутым техникам](../advanced/styling.md) для изучения стилизации.*

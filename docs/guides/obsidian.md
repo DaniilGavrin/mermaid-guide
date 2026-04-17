@@ -1,583 +1,75 @@
-# Работа с Obsidian
+# Интеграция с Obsidian
 
-Obsidian — мощный инструмент для работы с заметками, который имеет отличную встроенную поддержку Mermaid.
+Obsidian имеет встроенную поддержку Mermaid. Вам не нужно устанавливать плагины, просто используйте блоки кода.
 
-## Базовое использование
+## Как использовать
 
-### Создание диаграммы
+1. Создайте новую заметку.
+2. Вставьте блок кода с языком `mermaid`.
+3. Переключитесь в режим просмотра (Preview), чтобы увидеть диаграмму.
 
-1. Откройте или создайте заметку в Obsidian
-2. Используйте стандартный синтаксис Mermaid:
+## Пример: ER Диаграмма (Сущность-Связь)
 
-````markdown
-````markdown
-```mermaid
-graph TD
-    A[Идея] --> B[Исследование]
-    B --> C[Планирование]
-    C --> D[Реализация]
-    D --> E[Тестирование]
-    E --> F[Публикация]
-```
-````
+### Исходный код (для копирования):
 
-**Результат:**
-```mermaid
-graph TD
-    A[Идея] --> B[Исследование]
-    B --> C[Планирование]
-    C --> D[Реализация]
-    D --> E[Тестирование]
-    E --> F[Публикация]
-```
-````
-
-## Типы диаграмм в Obsidian
-
-### Flowchart (Блок-схемы)
-
-````markdown
-````markdown
-```mermaid
-graph LR
-    Start --> Input[/Ввод данных/]
-    Input --> Process[Обработка]
-    Process --> Decision{Условие?}
-    Decision -->|Да| Output[/Вывод/]
-    Decision -->|Нет| Process
-    Output --> End
-```
-````
-
-**Результат:**
-```mermaid
-graph LR
-    Start --> Input[/Ввод данных/]
-    Input --> Process[Обработка]
-    Process --> Decision{Условие?}
-    Decision -->|Да| Output[/Вывод/]
-    Decision -->|Нет| Process
-    Output --> End
-```
-````
-
-### Sequence Diagram (Диаграммы последовательностей)
-
-````markdown
-````markdown
-```mermaid
-sequenceDiagram
-    participant U as Пользователь
-    participant O as Obsidian
-    participant M as Mermaid
+```text
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
     
-    U->>O: Создать заметку
-    O->>M: Инициализировать рендерер
-    M-->>O: Готово
-    O-->>U: Показать диаграмму
-```
-````
-
-**Результат:**
-```mermaid
-sequenceDiagram
-    participant U as Пользователь
-    participant O as Obsidian
-    participant M as Mermaid
-    
-    U->>O: Создать заметку
-    O->>M: Инициализировать рендерер
-    M-->>O: Готово
-    O-->>U: Показать диаграмму
-```
-````
-
-### Class Diagram (Диаграммы классов)
-
-````markdown
-````markdown
-```mermaid
-classDiagram
-    class Заметка {
-        +String title
-        +String content
-        +Date created
-        +Date modified
-        +addTag(String)
-        +removeTag(String)
-        +search(String) List~Заметка~
+    CUSTOMER {
+        string name
+        string email
+        string address
     }
-    
-    class Тег {
-        +String name
-        +List~Заметка~ notes
+    ORDER {
+        int id
+        date orderDate
+        string status
     }
-    
-    Заметка "1" -- "*" Тег : has
-```
-````
-
-**Результат:**
-```mermaid
-classDiagram
-    class Заметка {
-        +String title
-        +String content
-        +Date created
-        +Date modified
-        +addTag(String)
-        +removeTag(String)
-        +search(String) List~Заметка~
+    PRODUCT {
+        string sku
+        string name
+        float price
     }
-    
-    class Тег {
-        +String name
-        +List~Заметка~ notes
+    LINE_ITEM {
+        int quantity
+        float price
     }
-    
-    Заметка "1" -- "*" Тег : has
 ```
-````
 
-### Gantt Chart (Диаграммы Ганта)
+### Результат (как это выглядит в Obsidian):
 
-````markdown
-````markdown
-```mermaid
-gantt
-    title Проект написания книги
-    dateFormat  YYYY-MM-DD
-    section Подготовка
-    Исследование       :a1, 2024-01-01, 30d
-    План глав          :after a1, 15d
-    section Написание
-    Глава 1            :2024-02-15, 20d
-    Глава 2            :after Chapter 1, 20d
-    Глава 3            :after Chapter 2, 20d
-    section Редактура
-    Первое чтение      :2024-04-15, 15d
-    Финальная правка   :after First pass, 10d
-```
-````
-
-**Результат:**
-```mermaid
-gantt
-    title Проект написания книги
-    dateFormat  YYYY-MM-DD
-    section Подготовка
-    Исследование       :a1, 2024-01-01, 30d
-    План глав          :after a1, 15d
-    section Написание
-    Глава 1            :2024-02-15, 20d
-    Глава 2            :after Chapter 1, 20d
-    Глава 3            :after Chapter 2, 20d
-    section Редактура
-    Первое чтение      :2024-04-15, 15d
-    Финальная правка   :after First pass, 10d
-```
-````
-
-### Mindmap (Ментальные карты)
-
-````markdown
-````markdown
-```mermaid
-mindmap
-  root((Проект))
-    Планирование
-      Цели
-      Ресурсы
-      Сроки
-    Разработка
-      Дизайн
-      Код
-      Тесты
-    Запуск
-      Маркетинг
-      Поддержка
-```
-````
-
-**Результат:**
-```mermaid
-mindmap
-  root((Проект))
-    Планирование
-      Цели
-      Ресурсы
-      Сроки
-    Разработка
-      Дизайн
-      Код
-      Тесты
-    Запуск
-      Маркетинг
-      Поддержка
-```
-````
-
-### ER Diagram (Диаграммы сущность-связь)
-
-**Пример кода:**
-```markdown
 ```mermaid
 erDiagram
-    ПОЛЬЗОВАТЕЛЬ ||--o{ ЗАМЕТКА : создает
-    ПОЛЬЗОВАТЕЛЬ {
-        int id
-        string имя
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
         string email
+        string address
     }
-    ЗАМЕТКА ||--|{ ТЕГ : содержит
-    ЗАМЕТКА {
+    ORDER {
         int id
-        string заголовок
-        text содержимое
-        date дата_создания
+        date orderDate
+        string status
     }
-    ТЕГ {
-        int id
-        string название
+    PRODUCT {
+        string sku
+        string name
+        float price
     }
-```
-```
-
-**Результат:**
-```mermaid
-erDiagram
-    ПОЛЬЗОВАТЕЛЬ ||--o{ ЗАМЕТКА : создает
-    ПОЛЬЗОВАТЕЛЬ {
-        int id
-        string имя
-        string email
-    }
-    ЗАМЕТКА ||--|{ ТЕГ : содержит
-    ЗАМЕТКА {
-        int id
-        string заголовок
-        text содержимое
-        date дата_создания
-    }
-    ТЕГ {
-        int id
-        string название
+    LINE_ITEM {
+        int quantity
+        float price
     }
 ```
 
-## Настройка тем
+## Советы для Obsidian
 
-### Выбор темы
-
-1. Откройте **Settings** (Настройки)
-2. Перейдите в **Appearance** (Внешний вид)
-3. Найдите секцию **Mermaid theme**
-4. Выберите одну из тем:
-   - `default` — светлая тема по умолчанию
-   - `forest` — зеленая тема
-   - `dark` — темная тема
-   - `neutral` — нейтральная серая тема
-
-### Автоматическое переключение тем
-
-Obsidian может автоматически переключать тему Mermaid вместе с темой приложения:
-
-```javascript
-// В сниппете или плагине
-app.on('css-change', () => {
-  const isDark = document.body.classList.contains('theme-dark');
-  // Логика переключения темы Mermaid
-});
-```
-
-## Продвинутые техники
-
-### Связь между заметками
-
-Используйте Mermaid для визуализации связей между заметками:
-
-````markdown
-````markdown
-```mermaid
-graph TD
-    A[[Главная]] --> B[Проекты]
-    A --> C[Идеи]
-    A --> D[Ресурсы]
-    B --> E[Проект 1]
-    B --> F[Проект 2]
-    C --> G[Идея 1]
-    D --> H[Статья]
-    D --> I[Видео]
-    
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bfb,stroke:#333
-    style D fill:#fbb,stroke:#333
-```
-````
-
-**Результат:**
-```mermaid
-graph TD
-    A[[Главная]] --> B[Проекты]
-    A --> C[Идеи]
-    A --> D[Ресурсы]
-    B --> E[Проект 1]
-    B --> F[Проект 2]
-    C --> G[Идея 1]
-    D --> H[Статья]
-    D --> I[Видео]
-    
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bfb,stroke:#333
-    style D fill:#fbb,stroke:#333
-```
-````
-
-### Интерактивные элементы
-
-Хотя Obsidian не поддерживает полную интерактивность, можно использовать кликабельные ссылки:
-
-````markdown
-````markdown
-```mermaid
-graph LR
-    A[Начало] --> B[[Документация]]
-    B --> C[[API Reference]]
-    C --> D[[Примеры]]
-    
-    click B href "https://publish.obsidian.md/your-vault/Documentation" "Открыть документацию"
-    click C href "https://publish.obsidian.md/your-vault/API" "Открыть API"
-    click D href "https://publish.obsidian.md/your-vault/Examples" "Открыть примеры"
-```
-````
-
-**Результат:**
-```mermaid
-graph LR
-    A[Начало] --> B[[Документация]]
-    B --> C[[API Reference]]
-    C --> D[[Примеры]]
-    
-    click B href "https://publish.obsidian.md/your-vault/Documentation" "Открыть документацию"
-    click C href "https://publish.obsidian.md/your-vault/API" "Открыть API"
-    click D href "https://publish.obsidian.md/your-vault/Examples" "Открыть примеры"
-```
-````
-
-### Использование с плагинами
-
-#### Excalidraw + Mermaid
-
-Плагин Excalidraw позволяет комбинировать Mermaid с ручными рисунками:
-
-1. Установите плагин **Excalidraw**
-2. Создайте новый Excalidraw файл
-3. Вставьте Mermaid код через меню
-
-#### Dataview + Mermaid
-
-Автоматическая генерация диаграмм из данных:
-
-````markdown
-```dataview
-TABLE without id file.link as "Заметка", tags as "Теги"
-FROM #проект
-SORT file.name
-```
-
-````markdown
-```mermaid
-%% Генерируется вручную на основе данных выше
-graph TD
-    A[Проект Alpha] --> B[Задача 1]
-    A --> C[Задача 2]
-    A --> D[Задача 3]
-```
-````
-
-**Результат:**
-```mermaid
-%% Генерируется вручную на основе данных выше
-graph TD
-    A[Проект Alpha] --> B[Задача 1]
-    A --> C[Задача 2]
-    A --> D[Задача 3]
-```
-````
-
-## Шаблоны для частого использования
-
-### Шаблон: Процесс разработки
-
-Создайте файл `Templates/Development Process.md`:
-
-````markdown
-## Процесс разработки
-
-````markdown
-```mermaid
-graph LR
-    A[Идея] --> B[Требования]
-    B --> C[Дизайн]
-    C --> D[Разработка]
-    D --> E[Тестирование]
-    E --> F{Баги?}
-    F -->|Да| D
-    F -->|Нет| G[Релиз]
-```
-````
-
-**Результат:**
-```mermaid
-graph LR
-    A[Идея] --> B[Требования]
-    B --> C[Дизайн]
-    C --> D[Разработка]
-    D --> E[Тестирование]
-    E --> F{Баги?}
-    F -->|Да| D
-    F -->|Нет| G[Релиз]
-```
-
-**Статус:** %% Не начато %%
-**Дата начала:** %% {{date}} %%
-````
-
-### Шаблон: Архитектура системы
-
-````markdown
-## Архитектура
-
-````markdown
-```mermaid
-graph TB
-    subgraph Client
-        A[Browser]
-        B[Mobile App]
-    end
-    
-    subgraph Server
-        C[Load Balancer]
-        D[API Server]
-        E[Database]
-    end
-    
-    A --> C
-    B --> C
-    C --> D
-    D --> E
-```
-````
-
-**Результат:**
-```mermaid
-graph TB
-    subgraph Client
-        A[Browser]
-        B[Mobile App]
-    end
-    
-    subgraph Server
-        C[Load Balancer]
-        D[API Server]
-        E[Database]
-    end
-    
-    A --> C
-    B --> C
-    C --> D
-    D --> E
-```
-
-**Версия:** 1.0
-**Последнее обновление:** {{date}}
-````
-
-## Советы и лучшие практики
-
-1. **Используйте комментарии** для документации сложных диаграмм:
-   ```mermaid
-   graph TD
-       %% Основной поток
-       A --> B
-       %% Обработка ошибок
-       B --> C
-   ```
-
-2. **Группируйте связанные элементы** с помощью `subgraph`:
-   ```mermaid
-   graph TB
-       subgraph Frontend
-           A[React]
-           B[Vue]
-       end
-       
-       subgraph Backend
-           C[Node.js]
-           D[Python]
-       end
-   ```
-
-3. **Сохраняйте простоту** — сложные диаграммы трудно читать
-
-4. **Используйте цвета осмысленно**:
-   ```mermaid
-   graph LR
-       A[Критично] --> B[Важно]
-       B --> C[Нормально]
-       
-       style A fill:#ff6b6b
-       style B fill:#ffd93d
-       style C fill:#6bcb77
-   ```
-
-5. **Версионируйте диаграммы** вместе с заметками через Git
-
-## Экспорт и публикация
-
-### Экспорт в PNG/SVG
-
-1. Откройте заметку с диаграммой
-2. Нажмите правой кнопкой на диаграмму
-3. Выберите **Save as image**
-4. Выберите формат (PNG или SVG)
-
-### Публикация через Obsidian Publish
-
-Диаграммы Mermaid автоматически рендерятся в опубликованных заметках.
-
-### Экспорт в PDF
-
-1. Установите плагин **Export to PDF**
-2. Экспортируйте заметку
-3. Диаграммы будут включены как изображения
-
-## Решение проблем
-
-### Диаграмма не отображается
-
-1. Проверьте синтаксис в [Mermaid Live Editor](https://mermaid.live/)
-2. Убедитесь, что отступы правильные (пробелы, не табы)
-3. Перезагрузите Obsidian
-
-### Медленный рендеринг
-
-1. Упростите диаграмму
-2. Разбейте на несколько меньших диаграмм
-3. Отключите предпросмотр для больших заметок
-
-### Конфликты с плагинами
-
-Если диаграммы не работают после установки плагина:
-1. Отключите недавно установленные плагины
-2. Проверьте консоль разработчика (`Ctrl+Shift+I`)
-3. Обновите Obsidian до последней версии
-
-## Полезные ресурсы
-
-- [Официальная документация Obsidian](https://help.obsidian.md/How+to/Create+diagrams+with+Mermaid)
-- [Mermaid JS Documentation](https://mermaid.js.org/)
-- [Obsidian Forum - Mermaid Tag](https://forum.obsidian.md/tag/mermaid)
-- [Awesome Obsidian](https://github.com/kmaasrud/awesome-obsidian)
+- Используйте режим "Live Preview" для мгновенного отображения изменений.
+- Диаграммы сохраняются как обычный текст в заметке.
+- Можно экспортировать заметку в PDF, диаграммы сохранятся как изображения.
