@@ -454,28 +454,63 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
       
-        Пример 1: Код для копирования
+        Пример 1: Базовое требование
       
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2">
-<span class="md-ellipsis">
-      
-        Пример 2: Результат (Живая диаграмма)
-      
-    </span>
-</a>
-</li>
+<nav aria-label="Пример 1: Базовое требование" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        Синтаксис
+        Исходный код (скопируйте для использования):
       
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        Результат (как это отобразится):
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2complex">
+<span class="md-ellipsis">
+      
+        Пример 2:Complex система требований
+      
+    </span>
+</a>
+<nav aria-label="Пример 2:Complex система требований" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        Исходный код:
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        Результат:
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -788,83 +823,110 @@
 <article class="md-content__inner md-typeset">
 <h1 id="requirement-diagram">Диаграммы требований (Requirement Diagram)</h1>
 <p>Позволяют визуализировать требования и их связи с элементами системы.</p>
-<h2 id="1">Пример 1: Код для копирования</h2>
-<p>Чтобы использовать этот пример, скопируйте код ниже:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>```mermaid
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>requirementDiagram
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    requirement "Безопасность данных" {
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        id: "REQ-001"
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>        text: "Все данные должны быть зашифрованы"
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        risk: High
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>        verifymethod: Test
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    }
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    requirement "Резервное копирование" {
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        id: "REQ-002"
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>        text: "Система должна создавать резервные копии каждые 24 часа"
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>        risk: Medium
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>        verifymethod: Inspection
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    }
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>    element "База данных" {
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>        type: Database
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>    }
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    element "Сервис бэкапов" {
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>        type: Service
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>    }
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>    "База данных" - satisfies -&gt; "Безопасность данных"
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>    "Сервис бэкапов" - satisfies -&gt; "Резервное копирование"
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>    "Сервис бэкапов" - traces -&gt; "База данных"
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>```
+<h2 id="1">Пример 1: Базовое требование</h2>
+<h3 id="_1">Исходный код (скопируйте для использования):</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>requirementDiagram
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>requirement "Безопасность данных" {
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    id: "REQ-001"
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    text: "Все данные должны быть зашифрованы"
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    risk: High
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    verifymethod: Test
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>}
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>element "База данных" {
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    type: "Database"
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>}
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>"База данных" - satisfies -&gt; "Безопасность данных"
 </code></pre></div>
-<h2 id="2">Пример 2: Результат (Живая диаграмма)</h2>
-<p>Так эта диаграмма будет выглядеть на сайте:</p>
+<h3 id="_2">Результат (как это отобразится):</h3>
 <div class="mermaid">requirementDiagram
+requirement "Безопасность данных" {
+    id: "REQ-001"
+    text: "Все данные должны быть зашифрованы"
+    risk: High
+    verifymethod: Test
+}
 
-    requirement "Безопасность данных" {
-        id: "REQ-001"
-        text: "Все данные должны быть зашифрованы"
-        risk: High
-        verifymethod: Test
-    }
+element "База данных" {
+    type: "Database"
+}
 
-    requirement "Резервное копирование" {
-        id: "REQ-002"
-        text: "Система должна создавать резервные копии каждые 24 часа"
-        risk: Medium
-        verifymethod: Inspection
-    }
-
-    element "База данных" {
-        type: Database
-    }
-
-    element "Сервис бэкапов" {
-        type: Service
-    }
-
-    "База данных" - satisfies -&gt; "Безопасность данных"
-    "Сервис бэкапов" - satisfies -&gt; "Резервное копирование"
-    "Сервис бэкапов" - traces -&gt; "База данных"
+"База данных" - satisfies -&gt; "Безопасность данных"
 </div>
-<h2 id="_1">Синтаксис</h2>
-<ul>
-<li><code>requirement</code>: Определяет требование. Обязательно указывать <code>id</code>, <code>text</code>, <code>risk</code> и <code>verifymethod</code>.</li>
-<li><code>element</code>: Определяет элемент системы (компонент, сервис, базу данных).</li>
-<li>Связи:</li>
-<li><code>satisfies</code>: Элемент удовлетворяет требованию.</li>
-<li><code>verifies</code>: Элемент проверяет требование.</li>
-<li><code>traces</code>: Требование связано с другим элементом или требованием.</li>
-</ul>
+<h2 id="2complex">Пример 2:Complex система требований</h2>
+<h3 id="_3">Исходный код:</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>requirementDiagram
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>requirement "Аутентификация" {
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    id: "REQ-002"
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    text: "Пользователь должен входить через OAuth2"
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    risk: High
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    verifymethod: Test
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>}
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>requirement "Логирование" {
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>    id: "REQ-003"
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    text: "Все действия должны логироваться"
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    risk: Medium
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>    verifymethod: Inspection
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>}
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>element "Auth Service" {
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>    type: "Service"
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>}
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>element "Logger" {
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>    type: "Module"
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>}
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>element "API Gateway" {
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>    type: "Component"
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>}
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>"Auth Service" - satisfies -&gt; "Аутентификация"
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>"Logger" - satisfies -&gt; "Логирование"
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>"API Gateway" - traces -&gt; "Аутентификация"
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>"API Gateway" - traces -&gt; "Логирование"
+</code></pre></div>
+<h3 id="_4">Результат:</h3>
+<div class="mermaid">requirementDiagram
+requirement "Аутентификация" {
+    id: "REQ-002"
+    text: "Пользователь должен входить через OAuth2"
+    risk: High
+    verifymethod: Test
+}
+
+requirement "Логирование" {
+    id: "REQ-003"
+    text: "Все действия должны логироваться"
+    risk: Medium
+    verifymethod: Inspection
+}
+
+element "Auth Service" {
+    type: "Service"
+}
+
+element "Logger" {
+    type: "Module"
+}
+
+element "API Gateway" {
+    type: "Component"
+}
+
+"Auth Service" - satisfies -&gt; "Аутентификация"
+"Logger" - satisfies -&gt; "Логирование"
+"API Gateway" - traces -&gt; "Аутентификация"
+"API Gateway" - traces -&gt; "Логирование"
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Последнее обновление">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:52:49 UTC">17 апреля 2026 г.</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="17 апреля 2026 г. 13:56:15 UTC">17 апреля 2026 г.</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Дата создания">
