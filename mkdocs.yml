@@ -70,3 +70,12 @@ nav:
     - Архитектурные схемы: examples/architecture.md
     - Алгоритмы: examples/algorithms.md
     - Бизнес-процессы: examples/business-processes.md
+  - Интеграция:
+    - HTML/JavaScript: integration/html-js.md
+    - React: integration/react.md
+    - Vue.js: integration/vue.md
+    - Angular: integration/angular.md
+    - Markdown: guides/markdown-integration.md
+    - Obsidian: guides/obsidian.md
+    - Notion: guides/notion.md
+    - GitHub/GitLab: guides/github-gitlab.md
