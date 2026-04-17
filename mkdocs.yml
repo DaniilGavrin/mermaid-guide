@@ -75,6 +75,7 @@ nav:
     - React: integration/react.md
     - Vue.js: integration/vue.md
     - Angular: integration/angular.md
+  - Гайды по платформам:
     - Markdown: guides/markdown-integration.md
     - Obsidian: guides/obsidian.md
     - Notion: guides/notion.md
