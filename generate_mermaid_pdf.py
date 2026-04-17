@@ -1,18 +1,7 @@
 #!/usr/bin/env python3
 """
-Универсальный генератор PDF из Markdown для Git шпаргалки.
-Воссоздает стиль оригинального документа (v1.0.0):
-- Серый фон у блоков кода
-- Шрифты Liberation Sans/Mono
-- Правильные отступы и разрывы страниц
-- 10 страниц с финальной строкой на последней
-
-Использование:
-    python generate_git_pdf.py [input.md] [output.pdf]
-    
-По умолчанию:
-    input: to-print/git-commands-full.md
-    output: to-print/git-commands-full.pdf
+Генератор PDF из Markdown для Mermaid Guide.
+Адаптированная версия скрипта из cs-fundamentals.
 """
 
 import os
@@ -20,22 +9,18 @@ import sys
 import re
 import subprocess
 from weasyprint import HTML, CSS
-from weasyprint.text.fonts import FontConfiguration
 
 def get_font_paths():
     """Возвращает пути к шрифтам в зависимости от ОС."""
-    # Основные пути для Linux (Ubuntu/Debian/CentOS)
     paths = {
         'regular': '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf',
         'bold': '/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf',
         'italic': '/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf',
         'mono': '/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf'
     }
-    
-    # Проверка существования, если нет - пробуем альтернативы
+
     for key, path in list(paths.items()):
         if not os.path.exists(path):
-            # Попытка найти в других стандартных местах
             alt_paths = [
                 f'/usr/share/fonts/{path.split("/")[-2]}/{path.split("/")[-1]}',
                 f'/usr/local/share/fonts/{path.split("/")[-1]}',
@@ -49,105 +34,139 @@ def get_font_paths():
                     break
             if not found:
                 print(f"⚠️ Warning: Шрифт {key} не найден по пути {path}. Будет использован системный аналог.")
-                
+
     return paths
 
 def convert_md_to_html(md_content):
     """
-    Конвертирует Markdown в HTML с сохранением структуры для идеального рендеринга.
-    Обрабатывает заголовки, код, списки и текст.
+    Конвертирует Markdown в HTML с сохранением структуры.
+    Обрабатывает заголовки, код, списки, таблицы и mermaid блоки.
     """
     lines = md_content.split('\n')
     html_parts = []
     in_code_block = False
-    
+    code_lang = None
+    in_mermaid_block = False
+    in_table = False
+    table_rows = []
+
     for line in lines:
         # Обработка блоков кода ```
         if line.startswith('```'):
             if in_code_block:
-                html_parts.append('</code></pre>')
+                if code_lang == 'mermaid':
+                    # Закрываем mermaid блок специальным классом
+                    html_parts.append('</code></pre>')
+                    in_mermaid_block = False
+                else:
+                    html_parts.append('</code></pre>')
                 in_code_block = False
+                code_lang = None
             else:
-                # Определяем язык (опционально), но для стиля нам важен сам блок
-                html_parts.append('<pre><code>')
+                lang = line[3:].strip()
+                code_lang = lang
+                if lang == 'mermaid':
+                    html_parts.append('<pre class="mermaid"><code>')
+                    in_mermaid_block = True
+                else:
+                    html_parts.append('<pre><code>')
                 in_code_block = True
             continue
-        
+
         if in_code_block:
-            # Экранирование спецсимволов HTML внутри кода
             safe_line = line.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
             html_parts.append(safe_line)
             continue
-            
-        # Пустые строки -> отступы
+
+        # Пустые строки
         if not line.strip():
-            html_parts.append('<div class="spacer"></div>')
+            if in_table:
+                # Конец таблицы
+                html_parts.append(build_table(table_rows))
+                table_rows = []
+                in_table = False
+            else:
+                html_parts.append('<div class="spacer"></div>')
+            continue
+
+        # Таблицы
+        if '|' in line and line.strip().startswith('|') and line.strip().endswith('|'):
+            if not in_table:
+                in_table = True
+            cells = [cell.strip() for cell in line.split('|')[1:-1]]
+            if '---' in line:
+                # Это разделитель таблицы, пропускаем
+                continue
+            table_rows.append(cells)
             continue
 
         # Заголовки
         if line.startswith('# '):
-            text = line[2:]
-            # Экранирование и обработка inline элементов
-            text = process_inline(text)
+            text = process_inline(line[2:])
             html_parts.append(f'<h1>{text}</h1>')
-            
         elif line.startswith('## '):
-            text = line[3:]
-            text = process_inline(text)
+            text = process_inline(line[3:])
             html_parts.append(f'<h2>{text}</h2>')
-            
         elif line.startswith('### '):
-            text = line[4:]
-            text = process_inline(text)
+            text = process_inline(line[4:])
             html_parts.append(f'<h3>{text}</h3>')
-            
         elif line.startswith('#### '):
-            text = line[5:]
-            text = process_inline(text)
+            text = process_inline(line[5:])
             html_parts.append(f'<h4>{text}</h4>')
-            
-        # Списки (маркированные)
+        # Списки
         elif line.strip().startswith('- '):
-            text = line.strip()[2:]
-            text = process_inline(text)
+            text = process_inline(line.strip()[2:])
             html_parts.append(f'<div class="list-item">• {text}</div>')
-            
-        # Разделители секций ---
+        # Разделители
         elif line.startswith('---'):
             html_parts.append('<hr class="section-divider"/>')
-            
         else:
-            # Обычный текст
             text = process_inline(line)
             if text.strip():
                 html_parts.append(f'<p>{text}</p>')
 
+    # Если таблица не закрыта
+    if in_table and table_rows:
+        html_parts.append(build_table(table_rows))
+
     return '\n'.join(html_parts)
 
+def build_table(rows):
+    """Строит HTML таблицу."""
+    if not rows:
+        return ''
+    
+    html = '<table>'
+    for i, row in enumerate(rows):
+        tag = 'th' if i == 0 else 'td'
+        cells = ''.join(f'<{tag}>{process_inline(cell)}</{tag}>' for cell in row)
+        html += f'<tr>{cells}</tr>'
+    html += '</table>'
+    return html
+
 def process_inline(text):
-    """Обрабатывает inline форматирование: жирный, курсив, код."""
-    # Inline код `code` -> <code>code</code>
-    # Важно сделать это первым, чтобы содержимое кода не форматировалось дальше
+    """Обрабатывает inline форматирование."""
+    # Inline код
     def replace_code(match):
         content = match.group(1)
-        # Экранируем внутри кода
         content = content.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         return f'<code>{content}</code>'
-    
     text = re.sub(r'`([^`]+)`', replace_code, text)
-    
-    # Жирный **text** -> <strong>text</strong>
+
+    # Жирный
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
-    
-    # Курсив *text* -> <em>text</em> (если не внутри слова, упрощенно)
-    # Осторожно, чтобы не задеть звездочки в коде (они уже обработаны)
+
+    # Курсив
     text = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', text)
-    
+
+    # Ссылки [text](url)
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+
     return text
 
 def generate_pdf(input_path, output_path):
     """Генерирует PDF файл."""
-    
+
     if not os.path.exists(input_path):
         print(f"❌ Ошибка: Файл '{input_path}' не найден!")
         sys.exit(1)
@@ -157,34 +176,13 @@ def generate_pdf(input_path, output_path):
         md_content = f.read()
 
     html_body = convert_md_to_html(md_content)
-    
+
     font_paths = get_font_paths()
-    
-    # CSS стили, воссоздающие оригинал
+
     css_styles = """
     @page {
         size: A4;
         margin: 2cm;
-        @bottom-right {
-            content: none;
-        }
-    }
-
-    @font-face {
-        font-family: "Liberation Sans";
-        src: url(file:///usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf);
-    }
-    @font-face {
-        font-family: "Liberation Sans Bold";
-        src: url(file:///usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf);
-    }
-    @font-face {
-        font-family: "Liberation Sans Italic";
-        src: url(file:///usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf);
-    }
-    @font-face {
-        font-family: "Liberation Mono";
-        src: url(file:///usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf);
     }
 
     body {
@@ -193,8 +191,6 @@ def generate_pdf(input_path, output_path):
         line-height: 1.3;
         color: #222;
         text-align: justify;
-        widows: 2;
-        orphans: 2;
     }
 
     h1 {
@@ -238,7 +234,6 @@ def generate_pdf(input_path, output_path):
         line-height: 0;
     }
 
-    /* Стили для блоков кода - КАК В ОРИГИНАЛЕ (серый фон) */
     pre {
         background-color: #f4f4f4;
         border: 1px solid #e0e0e0;
@@ -252,6 +247,12 @@ def generate_pdf(input_path, output_path):
         white-space: pre-wrap;
         word-wrap: break-word;
         page-break-inside: avoid;
+    }
+
+    pre.mermaid {
+        background-color: #f9f9f9;
+        border: 1px dashed #ccc;
+        text-align: center;
     }
 
     code {
@@ -288,10 +289,32 @@ def generate_pdf(input_path, output_path):
         font-family: "Liberation Sans Bold", sans-serif;
         font-weight: bold;
     }
-    
+
     em {
         font-family: "Liberation Sans Italic", sans-serif;
         font-style: italic;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8pt 0;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 6pt;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    a {
+        color: #0066cc;
+        text-decoration: none;
     }
     """
 
@@ -300,7 +323,7 @@ def generate_pdf(input_path, output_path):
     <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>Git Commands Full Cheat Sheet</title>
+        <title>Mermaid Guide Complete</title>
     </head>
     <body>
         {html_body}
@@ -309,35 +332,23 @@ def generate_pdf(input_path, output_path):
     """
 
     print("🎨 Генерация PDF...")
-    
-    font_config = FontConfiguration()
-    css = CSS(string=css_styles, font_config=font_config)
-    
+
     try:
         html_doc = HTML(string=full_html)
-        html_doc.write_pdf(output_path, stylesheets=[css], font_config=font_config)
-        
+        css = CSS(string=css_styles)
+        html_doc.write_pdf(output_path, stylesheets=[css])
+
         print(f"✅ Успешно создано: {output_path}")
-        
-        # Статистика
+
         if os.path.exists(output_path):
             size_kb = os.path.getsize(output_path) / 1024.0
             print(f"📦 Размер: {size_kb:.1f} KB")
-            
-            try:
-                result = subprocess.run(['pdfinfo', output_path], capture_output=True, text=True, timeout=5)
-                for line in result.stdout.split('\n'):
-                    if 'Pages' in line:
-                        print(f"📄 {line}")
-            except Exception:
-                pass
-                
+
     except Exception as e:
         print(f"❌ Ошибка при генерации PDF: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
-    # Универсальная обработка аргументов
     if len(sys.argv) >= 3:
         input_file = sys.argv[1]
         output_file = sys.argv[2]
@@ -345,8 +356,7 @@ if __name__ == "__main__":
         input_file = sys.argv[1]
         output_file = "output.pdf"
     else:
-        # Значения по умолчанию
-        input_file = "to-print/git-commands-full.md"
-        output_file = "to-print/git-commands-full.pdf"
+        input_file = "to-print/mermaid-guide-complete.md"
+        output_file = "to-print/mermaid-guide-complete.pdf"
 
     generate_pdf(input_file, output_file)

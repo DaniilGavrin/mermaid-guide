@@ -1,25 +1,59 @@
----
-title: "Полное руководство по Mermaid.js"
-author: "DaniilGavrin"
-date: "`date +%Y-%m-%d`"
-lang: ru
-toc: true
-toc-depth: 3
-geometry: margin=2cm
-header-includes: |
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
-    <style>
-        body { font-family: 'DejaVu Sans', sans-serif; }
-        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
-        .mermaid { text-align: center; margin: 20px 0; }
-        img { max-width: 100%; height: auto; }
-    </style>
+# Mermaid Guide
+
+Добро пожаловать в полное руководство по **Mermaid** — инструменту для создания диаграмм и визуализаций с помощью простого текстового синтаксиса.
+
+## 🚀 Быстрый старт
+
+Создайте свою первую диаграмму за 30 секунд:
+
+````markdown
+```mermaid
+graph TD
+    A[Начало] --> B{Условие?}
+    B -->|Да| C[Действие 1]
+    B -->|Нет| D[Действие 2]
+    C --> E[Конец]
+    D --> E
+```
+````
+
+**Результат:**
+```mermaid
+graph TD
+    A[Начало] --> B{Условие?}
+    B -->|Да| C[Действие 1]
+    B -->|Нет| D[Действие 2]
+    C --> E[Конец]
+    D --> E
+```
+
+## 📚 Что вы найдете здесь
+
+- **Основы**: Изучите синтаксис и настройте окружение
+- **Типы диаграмм**: От блок-схем до диаграмм Ганта и ментальных карт
+- **Продвинутые техники**: Стилизация, интерактивность и интеграция
+- **Примеры**: Реальные кейсы использования в документации и архитектуре
+
+## 🎯 Почему Mermaid?
+
+- ✅ **Текстовый формат**: Диаграммы хранятся вместе с кодом
+- ✅ **Версионность**: Легко отслеживать изменения в Git
+- ✅ **Интеграция**: Работает в GitHub, GitLab, MkDocs, Obsidian и других
+- ✅ **Простота**: Минимум синтаксиса для максимального результата
+
+## 📖 Навигация
+
+| Раздел | Описание |
+|--------|----------|
+| [Основы](basics/what-is-mermaid.md) | Введение, установка, базовый синтаксис |
+| [Типы диаграмм](diagrams/flowchart.md) | Все виды поддерживаемых диаграмм |
+| [Продвинутые техники](advanced/styling.md) | Кастомизация и сложные сценарии |
+| [Примеры](examples/documentation.md) | Практическое применение |
+
 ---
 
-# Полное руководство по Mermaid.js
+*Руководство создано [DaniilGavrin](https://github.com/DaniilGavrin)*
 
-*Автоматически сгенерированная документация*
 
 ---
 
@@ -77,7 +111,9 @@ graph TD
 
 *Перейдите к [синтаксису](syntax.md) для изучения основ.*
 
+
 ---
+
 # Базовый синтаксис
 
 ## 📐 Структура диаграммы
@@ -145,7 +181,9 @@ graph TD
 
 *Перейдите к [блок-схемам](../diagrams/flowchart.md) для подробного изучения.*
 
+
 ---
+
 # Что такое Mermaid?
 
 **Mermaid** — это JavaScript-библиотека для создания диаграмм и визуализаций с помощью простого текстового синтаксиса, похожего на Markdown.
@@ -188,9 +226,8 @@ graph LR
 
 *Перейдите к [установке и настройке](setup.md) для начала работы.*
 
----
 
-# Типы диаграмм
+---
 
 # Диаграммы C4
 
@@ -265,7 +302,9 @@ C4Context
 
 *Перейдите к [продвинутым техникам](../advanced/styling.md) для изучения стилизации.*
 
+
 ---
+
 # Диаграммы классов
 
 Диаграммы классов UML для отображения структуры системы.
@@ -372,7 +411,9 @@ classDiagram
 
 *Перейдите к [диаграммам состояний](state.md) для изучения следующего типа.*
 
+
 ---
+
 # Диаграммы сущность-связь (ER)
 
 ER-диаграммы для моделирования данных и связей между сущностями.
@@ -472,7 +513,9 @@ erDiagram
 
 *Перейдите к [диаграммам Ганта](gantt.md) для изучения следующего типа.*
 
+
 ---
+
 # Блок-схемы (Flowchart)
 
 Блок-схемы — самый популярный тип диаграмм в Mermaid.
@@ -646,7 +689,9 @@ graph TD
 
 *Перейдите к [диаграммам последовательностей](sequence.md) для изучения следующего типа.*
 
+
 ---
+
 # Диаграммы Ганта
 
 Диаграммы Ганта для визуализации планов проектов и временных шкал.
@@ -737,7 +782,9 @@ gantt
 
 *Перейдите к [ментальным картам](mindmap.md) для изучения следующего типа.*
 
+
 ---
+
 # Ментальные карты
 
 Ментальные карты (Mind Maps) для визуализации идей и структурирования информации.
@@ -839,7 +886,9 @@ mindmap
 
 *Перейдите к [диаграммам таймлайн](timeline.md) для изучения следующего типа.*
 
+
 ---
+
 # Квадранты
 
 Диаграммы квадрантов для сравнения объектов по двум осям.
@@ -898,7 +947,9 @@ quadrantChart
 
 *Перейдите к [продвинутым техникам](../advanced/styling.md) для изучения стилизации.*
 
+
 ---
+
 # Диаграммы требований (Requirement Diagram)
 
 Позволяют визуализировать требования и их связи с элементами системы.
@@ -1015,7 +1066,9 @@ element "API Gateway" {
 "API Gateway" - traces -> "Логирование"
 ```
 
+
 ---
+
 # Диаграммы последовательностей
 
 Диаграммы последовательностей показывают взаимодействие между объектами во времени.
@@ -1135,7 +1188,9 @@ sequenceDiagram
 
 *Перейдите к [диаграммам классов](class.md) для изучения следующего типа.*
 
+
 ---
+
 # Диаграммы состояний
 
 Диаграммы состояний (State Diagram) показывают изменения состояния объекта.
@@ -1211,7 +1266,9 @@ stateDiagram-v2
 
 *Перейдите к [диаграммам сущность-связь](er.md) для изучения следующего типа.*
 
+
 ---
+
 # Диаграммы таймлайн
 
 Диаграммы таймлайн для отображения событий во времени.
@@ -1284,7 +1341,9 @@ timeline
 
 *Перейдите к [продвинутым техникам](../advanced/styling.md) для изучения стилизации.*
 
+
 ---
+
 # Диаграммы пользовательского пути
 
 Диаграммы User Journey для отображения взаимодействия пользователя с продуктом.
@@ -1355,7 +1414,9 @@ journey
 
 *Перейдите к [стилизации](../advanced/styling.md) для изучения продвинутых техник.*
 
+
 ---
+
 # Диаграммы Зиккерта
 
 Диаграммы Зиккерта (ZenUML) — упрощённый синтаксис для диаграмм последовательностей.
@@ -1434,9 +1495,8 @@ sequenceDiagram
 
 *Перейдите к [продвинутым техникам](../advanced/styling.md) для изучения стилизации.*
 
----
 
-# Продвинутые техники
+---
 
 # Интеграция с другими инструментами
 
@@ -1493,7 +1553,9 @@ graph TD
 
 *Перейдите к [примерам использования](../examples/documentation.md) для практических кейсов.*
 
+
 ---
+
 # Интерактивность
 
 Интерактивные элементы в диаграммах Mermaid.
@@ -1576,7 +1638,9 @@ window.testCallback = function(message) {
 
 *Перейдите к [интеграции](integration.md) для изучения подключения к другим инструментам.*
 
+
 ---
+
 # Стилизация и темы
 
 Продвинутые техники кастомизации диаграмм Mermaid.
@@ -1666,9 +1730,8 @@ graph TD
 
 *Перейдите к [интерактивности](interactivity.md) для изучения продвинутых функций.*
 
----
 
-# Примеры использования
+---
 
 # Алгоритмы
 
@@ -1807,7 +1870,9 @@ graph TD
 
 *Перейдите к [бизнес-процессам](business-processes.md) для примеров из бизнеса.*
 
+
 ---
+
 # Архитектурные схемы
 
 Визуализация архитектуры систем с помощью Mermaid.
@@ -1959,7 +2024,9 @@ graph TD
 
 *Перейдите к [алгоритмам](algorithms.md) для визуализации алгоритмов.*
 
+
 ---
+
 # Бизнес-процессы
 
 Примеры визуализации бизнес-процессов с помощью Mermaid.
@@ -2026,7 +2093,9 @@ flowchart LR
     D -->|Подписано| E[Архив]
 ```
 
+
 ---
+
 # Документация проектов
 
 Использование Mermaid для документации программного обеспечения.
@@ -2125,9 +2194,1049 @@ sequenceDiagram
 
 *Перейдите к [архитектурным схемам](architecture.md) для более детального изучения.*
 
+
 ---
 
-# Интеграция
+# Интеграция с GitHub и GitLab
+
+GitHub и GitLab автоматически рендерят диаграммы Mermaid в markdown-файлах, что делает их идеальными платформами для документации.
+
+## GitHub
+
+### Автоматический рендеринг
+
+GitHub поддерживает Mermaid начиная с 2022 года. Диаграммы рендерятся автоматически в:
+- README.md
+- Файлах документации (.md)
+- Issues и Pull Requests
+- Wiki
+
+**Пример:**
+````markdown
+```mermaid
+graph LR
+    A[GitHub Markdown] --> B[Автоматический рендеринг]
+    B --> C[SVG изображение]
+```
+````
+
+**Результат:**
+```mermaid
+graph LR
+    A[GitHub Markdown] --> B[Автоматический рендеринг]
+    B --> C[SVG изображение]
+```
+
+### Использование в README
+
+Просто добавьте код диаграммы в markdown:
+
+````markdown
+````markdown
+```mermaid
+sequenceDiagram
+    participant Dev as Разработчик
+    participant GH as GitHub
+    
+    Dev->>GH: Push commit с .md файлом
+    GH->>GH: Обработка markdown
+    GH->>Dev: Отображение диаграммы
+```
+````
+
+**Результат:**
+```mermaid
+sequenceDiagram
+    participant Dev as Разработчик
+    participant GH as GitHub
+    
+    Dev->>GH: Push commit с .md файлом
+    GH->>GH: Обработка markdown
+    GH->>Dev: Отображение диаграммы
+```
+````
+
+Результат:
+
+````markdown
+```mermaid
+sequenceDiagram
+    participant Dev as Разработчик
+    participant GH as GitHub
+    
+    Dev->>GH: Push commit с .md файлом
+    GH->>GH: Обработка markdown
+    GH->>Dev: Отображение диаграммы
+```
+````
+
+**Результат:**
+```mermaid
+sequenceDiagram
+    participant Dev as Разработчик
+    participant GH as GitHub
+    
+    Dev->>GH: Push commit с .md файлом
+    GH->>GH: Обработка markdown
+    GH->>Dev: Отображение диаграммы
+```
+
+### GitHub Actions для генерации
+
+Для создания изображений из диаграмм:
+
+```yaml
+name: Generate Mermaid Diagrams
+
+on: [push]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install mermaid-cli
+        run: npm install -g @mermaid-js/mermaid-cli
+      
+      - name: Generate diagrams
+        run: |
+          mmdc -i docs/diagram.mmd -o docs/diagram.png
+          
+      - name: Commit generated images
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs/*.png
+          git commit -m "Generate diagrams" || echo "No changes"
+          git push
+```
+
+### Особенности GitHub
+
+| Функция | Поддержка |
+|---------|-----------|
+| Рендеринг в README | ✅ Да |
+| Рендеринг в Issues | ✅ Да |
+| Рендеринг в PR | ✅ Да |
+| Кастомные темы | ⚠️ Ограничено |
+| Интерактивность | ❌ Нет |
+| Экспорт в PNG/SVG | ⚠️ Через Actions |
+
+## GitLab
+
+### Автоматический рендеринг
+
+GitLab также поддерживает Mermaid в markdown:
+
+````markdown
+```mermaid
+graph TD
+    A[GitLab] --> B[Native Support]
+    B --> C[Version 13.0+]
+```
+````
+
+**Результат:**
+```mermaid
+graph TD
+    A[GitLab] --> B[Native Support]
+    B --> C[Version 13.0+]
+```
+
+### Использование в GitLab
+
+````markdown
+````markdown
+```mermaid
+classDiagram
+    class Project {
+        +String name
+        +Array files
+        +save()
+    }
+    class Repository {
+        +clone()
+        +push()
+    }
+    Project --> Repository
+```
+````
+
+**Результат:**
+```mermaid
+classDiagram
+    class Project {
+        +String name
+        +Array files
+        +save()
+    }
+    class Repository {
+        +clone()
+        +push()
+    }
+    Project --> Repository
+```
+````
+
+Результат:
+
+````markdown
+```mermaid
+classDiagram
+    class Project {
+        +String name
+        +Array files
+        +save()
+    }
+    class Repository {
+        +clone()
+        +push()
+    }
+    Project --> Repository
+```
+````
+
+**Результат:**
+```mermaid
+classDiagram
+    class Project {
+        +String name
+        +Array files
+        +save()
+    }
+    class Repository {
+        +clone()
+        +push()
+    }
+    Project --> Repository
+```
+
+### GitLab CI/CD для генерации
+
+```yaml
+generate_diagrams:
+  stage: build
+  image: node:18
+  script:
+    - npm install -g @mermaid-js/mermaid-cli
+    - mkdir -p public/diagrams
+    - for file in docs/*.mmd; do
+        mmdc -i $file -o public/diagrams/$(basename $file .mmd).png;
+      done
+  artifacts:
+    paths:
+      - public/diagrams/
+```
+
+## Сравнение платформ
+
+````markdown
+```mermaid
+quadrantChart
+    title "Сравнение поддержки Mermaid"
+    x-axis "Меньше функций" --> "Больше функций"
+    y-axis "Сложнее" --> "Проще"
+    quadrant-1 "Рекомендуемые"
+    quadrant-2 "Ограниченные"
+    quadrant-3 "Не рекомендуются"
+    quadrant-4 "Продвинутые"
+    GitHub: [0.8, 0.9]
+    GitLab: [0.75, 0.85]
+    Notion: [0.3, 0.7]
+    Custom Site: [0.95, 0.4]
+```
+````
+
+**Результат:**
+```mermaid
+quadrantChart
+    title "Сравнение поддержки Mermaid"
+    x-axis "Меньше функций" --> "Больше функций"
+    y-axis "Сложнее" --> "Проще"
+    quadrant-1 "Рекомендуемые"
+    quadrant-2 "Ограниченные"
+    quadrant-3 "Не рекомендуются"
+    quadrant-4 "Продвинутые"
+    GitHub: [0.8, 0.9]
+    GitLab: [0.75, 0.85]
+    Notion: [0.3, 0.7]
+    Custom Site: [0.95, 0.4]
+```
+
+## Лучшие практики
+
+### 1. Версионирование диаграмм
+
+Храните исходный код диаграмм в отдельных `.mmd` файлах:
+
+```
+docs/
+├── architecture.mmd
+├── flowchart.mmd
+└── README.md (ссылается на .mmd файлы)
+```
+
+### 2. Документирование
+
+Добавляйте комментарии к сложным диаграммам:
+
+````markdown
+<!-- DIAGRAM: Architecture Overview -->
+<!-- UPDATED: 2024-01-15 -->
+```mermaid
+graph TD
+    A[Frontend] --> B[API Gateway]
+    B --> C[Microservice 1]
+    B --> D[Microservice 2]
+    C --> E[(Database)]
+    D --> E
+```
+````
+
+**Результат:**
+```mermaid
+graph TD
+    A[Frontend] --> B[API Gateway]
+    B --> C[Microservice 1]
+    B --> D[Microservice 2]
+    C --> E[(Database)]
+    D --> E
+```
+
+### 3. Оптимизация
+
+- Избегайте слишком больших диаграмм (>100 элементов)
+- Разбивайте сложные схемы на несколько частей
+- Используйте ссылки между диаграммами
+
+## Примеры использования
+
+### Документация проекта
+
+````markdown
+```mermaid
+mindmap
+  root((Проект))
+    Документация
+      README.md
+      Архитектура
+      API
+    Код
+      Источник
+      Тесты
+    CI/CD
+      Сборка
+      Деплой
+```
+````
+
+**Результат:**
+```mermaid
+mindmap
+  root((Проект))
+    Документация
+      README.md
+      Архитектура
+      API
+    Код
+      Источник
+      Тесты
+    CI/CD
+      Сборка
+      Деплой
+```
+
+### Workflow разработки
+
+````markdown
+```mermaid
+flowchart TD
+    A[Идея] --> B[Issue]
+    B --> C[Branch]
+    C --> D[Код]
+    D --> E[PR]
+    E --> F{Code Review}
+    F -->|OK| G[Merge]
+    F -->|Changes| C
+    G --> H[Deploy]
+```
+````
+
+**Результат:**
+```mermaid
+flowchart TD
+    A[Идея] --> B[Issue]
+    B --> C[Branch]
+    C --> D[Код]
+    D --> E[PR]
+    E --> F{Code Review}
+    F -->|OK| G[Merge]
+    F -->|Changes| C
+    G --> H[Deploy]
+```
+
+## Заключение
+
+GitHub и GitLab предоставляют отличную поддержку Mermaid для документации. Для более сложных сценариев используйте GitHub Actions/GitLab CI для генерации изображений или создавайте собственные сайты документации.
+
+
+---
+
+# Интеграция с Markdown
+
+Mermaid нативно поддерживается во многих Markdown-редакторах и платформах. Рассмотрим способы использования.
+
+## GitHub Flavored Markdown
+
+GitHub автоматически рендерит Mermaid диаграммы в файлах `.md`.
+
+### Пример использования
+
+```markdown
+# Архитектура проекта
+
+## Основная схема
+
+````markdown
+```mermaid
+graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server 1]
+    B --> D[Server 2]
+    C --> E[(Database)]
+    D --> E
+```
+````
+
+**Результат:**
+```mermaid
+graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server 1]
+    B --> D[Server 2]
+    C --> E[(Database)]
+    D --> E
+```
+
+## Процесс CI/CD
+
+````markdown
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Git as GitHub
+    participant CI as CI/CD
+    participant Deploy as Deployment
+    
+    Dev->>Git: git push
+    Git->>CI: Trigger pipeline
+    CI->>CI: Run tests
+    CI->>Deploy: Deploy if success
+    Deploy->>Deploy: Update production
+```
+````
+
+**Результат:**
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Git as GitHub
+    participant CI as CI/CD
+    participant Deploy as Deployment
+    
+    Dev->>Git: git push
+    Git->>CI: Trigger pipeline
+    CI->>CI: Run tests
+    CI->>Deploy: Deploy if success
+    Deploy->>Deploy: Update production
+```
+```
+
+**Важно:** На GitHub не требуется дополнительная настройка — просто используйте блоки кода с `mermaid`.
+
+## GitLab
+
+GitLab также поддерживает Mermaid из коробки.
+
+```markdown
+````markdown
+```mermaid
+gantt
+    title Проект разработки
+    dateFormat YYYY-MM-DD
+    section Дизайн
+    Макеты :des1, 2024-01-01, 7d
+    Прототип :after des1, 5d
+    section Разработка
+    Фронтенд :2024-01-15, 14d
+    Бэкенд :2024-01-15, 14d
+    section Тестирование
+    QA :2024-02-01, 7d
+```
+````
+
+**Результат:**
+```mermaid
+gantt
+    title Проект разработки
+    dateFormat YYYY-MM-DD
+    section Дизайн
+    Макеты :des1, 2024-01-01, 7d
+    Прототип :after des1, 5d
+    section Разработка
+    Фронтенд :2024-01-15, 14d
+    Бэкенд :2024-01-15, 14d
+    section Тестирование
+    QA :2024-02-01, 7d
+```
+```
+
+## Obsidian
+
+Obsidian имеет встроенную поддержку Mermaid.
+
+### Использование в Obsidian
+
+1. Создайте новую заметку
+2. Используйте стандартный синтаксис:
+
+````markdown
+````markdown
+```mermaid
+classDiagram
+    class Animal {
+        +int age
+        +String gender
+        +isMammal()
+        +mate()
+    }
+    
+    class Duck {
+        +swim()
+        +quack()
+    }
+    
+    class Fish {
+        -int sizeInFeet
+        -canEat()
+    }
+    
+    Animal <|-- Duck
+    Animal <|-- Fish
+```
+````
+
+**Результат:**
+```mermaid
+classDiagram
+    class Animal {
+        +int age
+        +String gender
+        +isMammal()
+        +mate()
+    }
+    
+    class Duck {
+        +swim()
+        +quack()
+    }
+    
+    class Fish {
+        -int sizeInFeet
+        -canEat()
+    }
+    
+    Animal <|-- Duck
+    Animal <|-- Fish
+```
+````
+
+### Настройка темы в Obsidian
+
+В настройках Obsidian можно выбрать тему для Mermaid:
+- Settings → Appearance → Mermaid theme
+- Доступные темы: default, forest, dark, neutral
+
+## Notion
+
+Notion **не поддерживает** Mermaid нативно, но есть обходные пути:
+
+### Способ 1: Экспорт в изображение
+
+1. Создайте диаграмму в [Mermaid Live Editor](https://mermaid.live/)
+2. Экспортируйте как PNG/SVG
+3. Вставьте изображение в Notion
+
+### Способ 2: Использование интеграций
+
+Используйте сервисы типа [Mermaid Chart](https://www.mermaidchart.com/) для встраивания.
+
+## VS Code
+
+### Расширение "Markdown Preview Mermaid Support"
+
+1. Установите расширение: `Markdown Preview Mermaid Support`
+2. Откройте `.md` файл
+3. Нажмите `Ctrl+Shift+V` (или `Cmd+Shift+V` на Mac)
+4. Диаграммы отобразятся автоматически
+
+### Расширение "Mermaid Preview"
+
+Для просмотра `.mmd` файлов:
+1. Установите `Mermaid Preview`
+2. Откройте файл `.mmd`
+3. Нажмите кнопку предпросмотра
+
+## Hugo
+
+### Установка плагина
+
+```bash
+# В config.toml
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+      [markup.goldmark.extensions.extras]
+        [markup.goldmark.extensions.extras.insert]
+          enable = true
+```
+
+### Использование в статьях
+
+```markdown
+---
+title: "Моя статья"
+date: 2024-01-01
+---
+
+## Диаграмма
+
+{{</* mermaid */>}}
+graph LR
+    A[Start] --> B[Process]
+    B --> C[End]
+{{</* /mermaid */>}}
+```
+
+## Jekyll
+
+### Плагин jekyll-mermaid
+
+1. Добавьте в `_config.yml`:
+
+```yaml
+plugins:
+  - jekyll-mermaid
+```
+
+2. Включите в layout:
+
+```html
+<!-- _layouts/default.html -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+```
+
+3. Используйте в постах:
+
+```markdown
+````markdown
+```mermaid
+pie
+    "Apples" : 40
+    "Oranges" : 30
+    "Bananas" : 20
+    "Other" : 10
+```
+````
+
+**Результат:**
+```mermaid
+pie
+    "Apples" : 40
+    "Oranges" : 30
+    "Bananas" : 20
+    "Other" : 10
+```
+```
+
+## Docusaurus
+
+### Настройка
+
+1. Установите плагин:
+
+```bash
+npm install @docusaurus/theme-mermaid
+```
+
+2. Добавьте в `docusaurus.config.js`:
+
+```javascript
+module.exports = {
+  themes: ['@docusaurus/theme-mermaid'],
+  markdown: {
+    mermaid: true,
+  },
+};
+```
+
+3. Используйте в документах:
+
+```markdown
+````markdown
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
+        string email
+    }
+    ORDER {
+        int id
+        string status
+        float total
+    }
+    PRODUCT {
+        string name
+        float price
+    }
+    LINE_ITEM {
+        int quantity
+        float price
+    }
+```
+````
+
+**Результат:**
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
+        string email
+    }
+    ORDER {
+        int id
+        string status
+        float total
+    }
+    PRODUCT {
+        string name
+        float price
+    }
+    LINE_ITEM {
+        int quantity
+        float price
+    }
+```
+```
+
+## MkDocs Material
+
+Как в нашем проекте:
+
+```yaml
+# mkdocs.yml
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+
+plugins:
+  - mermaid2
+```
+
+## Pandoc
+
+Конвертация Markdown с Mermaid в PDF/HTML:
+
+```bash
+# Установка фильтра
+npm install -g mermaid-filter
+
+# Конвертация
+pandoc input.md --filter mermaid-filter -o output.pdf
+```
+
+## Сравнение платформ
+
+| Платформа | Поддержка | Настройка | Примечания |
+|-----------|-----------|-----------|------------|
+| GitHub | ✅ Нативная | Не требуется | Автоматический рендеринг |
+| GitLab | ✅ Нативная | Не требуется | Полная поддержка |
+| Obsidian | ✅ Нативная | Минимальная | Выбор темы в настройках |
+| Notion | ❌ Нет | Требуется экспорт | Через изображения |
+| VS Code | ✅ Через расширения | Установка плагина | Несколько вариантов |
+| Hugo | ⚠️ Частичная | Конфигурация | Требует настройки |
+| Jekyll | ⚠️ Через плагины | Установка плагина | Дополнительный шаг |
+| Docusaurus | ✅ Через тему | Установка темы | Официальная поддержка |
+| MkDocs | ✅ Через плагин | Настройка YAML | Как в этом проекте |
+
+## Советы по использованию
+
+1. **Всегда проверяйте рендеринг** на целевой платформе
+2. **Используйте простые конструкции** для лучшей совместимости
+3. **Тестируйте на мобильных устройствах** — некоторые платформы могут иметь ограничения
+4. **Сохраняйте исходный код диаграмм** в репозитории для версионирования
+5. **Используйте комментарии** в сложных диаграммах:
+
+````markdown
+```mermaid
+graph TD
+    %% Это комментарий
+    A[Start] --> B[Process]
+```
+````
+
+**Результат:**
+```mermaid
+graph TD
+    %% Это комментарий
+    A[Start] --> B[Process]
+```
+
+## Полезные ссылки
+
+- [Mermaid Live Editor](https://mermaid.live/)
+- [Документация GitHub](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+- [Obsidian Help](https://help.obsidian.md/How+to/Create+diagrams+with+Mermaid)
+- [Docusaurus Mermaid](https://docusaurus.io/docs/markdown-features/diagrams)
+
+
+---
+
+# Интеграция с Notion
+
+Notion — популярная платформа для заметок и управления проектами. Хотя прямая поддержка Mermaid в Notion ограничена, существуют способы использования диаграмм.
+
+## Способы интеграции
+
+### 1. Использование сторонних виджетов
+
+Самый простой способ — использовать сервисы-посредники:
+
+1. Создайте диаграмму в [Mermaid Live Editor](https://mermaid.live/)
+2. Скопируйте ссылку на диаграмму
+3. Используйте сервисы вроде [Indify](https://indify.co/) или [Super.so](https://super.so/) для вставки
+
+**Пример:**
+````markdown
+```mermaid
+graph TD
+    A[Notion] --> B[Виджет]
+    B --> C[Mermaid Diagram]
+```
+````
+
+**Результат:**
+```mermaid
+graph TD
+    A[Notion] --> B[Виджет]
+    B --> C[Mermaid Diagram]
+```
+
+### 2. Экспорт в изображение
+
+Для статических диаграмм:
+
+1. Создайте диаграмму в Mermaid Live Editor
+2. Экспортируйте как PNG/SVG
+3. Загрузите изображение в Notion
+
+````markdown
+```mermaid
+sequenceDiagram
+    participant User
+    participant Notion
+    participant Image
+    
+    User->>Mermaid Live: Создать диаграмму
+    Mermaid Live->>User: Экспорт PNG
+    User->>Notion: Загрузка изображения
+```
+````
+
+**Результат:**
+```mermaid
+sequenceDiagram
+    participant User
+    participant Notion
+    participant Image
+    
+    User->>Mermaid Live: Создать диаграмму
+    Mermaid Live->>User: Экспорт PNG
+    User->>Notion: Загрузка изображения
+```
+
+### 3. Использование API (для разработчиков)
+
+Для автоматизации можно использовать Notion API:
+
+```javascript
+// Пример скрипта для генерации и загрузки диаграмм
+const { Client } = require('@notionhq/client');
+const mermaid = require('mermaid');
+const fs = require('fs');
+
+async function addDiagramToNotion(pageId, mermaidCode) {
+  // Генерация SVG
+  const { svg } = await mermaid.render('diagram', mermaidCode);
+  
+  // Сохранение и загрузка в Notion
+  fs.writeFileSync('diagram.svg', svg);
+  // ... код загрузки через API
+}
+```
+
+## Ограничения
+
+| Возможность | Статус |
+|------------|--------|
+| Рендеринг Mermaid | ❌ Не поддерживается нативно |
+| Изображения | ✅ Полная поддержка |
+| Сторонние виджеты | ✅ Работают через embed |
+| Интерактивность | ⚠️ Только через виджеты |
+
+## Рекомендации
+
+1. **Для документации**: используйте экспорт в PNG/SVG
+2. **Для презентаций**: применяйте сторонние виджеты
+3. **Для автоматизации**: пишите скрипты с использованием API
+
+## Альтернативы
+
+Если нужна полноценная поддержка Mermaid:
+- **Obsidian** — полная поддержка из коробки
+- **GitHub/GitLab** — рендеринг в markdown
+- **Собственный сайт** — через MkDocs + плагин mermaid2
+
+````markdown
+```mermaid
+mindmap
+  root((Выбор платформы))
+    Notion
+      Виджеты
+      Изображения
+    Obsidian
+      Нативная поддержка
+    GitHub
+      Авто-рендеринг
+```
+````
+
+**Результат:**
+```mermaid
+mindmap
+  root((Выбор платформы))
+    Notion
+      Виджеты
+      Изображения
+    Obsidian
+      Нативная поддержка
+    GitHub
+      Авто-рендеринг
+```
+
+
+---
+
+# Интеграция с Obsidian
+
+Obsidian имеет встроенную поддержку Mermaid. Вам не нужно устанавливать плагины, просто используйте блоки кода.
+
+## Как использовать
+
+1. Создайте новую заметку.
+2. Вставьте блок кода с языком `mermaid`.
+3. Переключитесь в режим просмотра (Preview), чтобы увидеть диаграмму.
+
+## Пример: ER Диаграмма (Сущность-Связь)
+
+### Исходный код (для копирования):
+
+```text
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
+        string email
+        string address
+    }
+    ORDER {
+        int id
+        date orderDate
+        string status
+    }
+    PRODUCT {
+        string sku
+        string name
+        float price
+    }
+    LINE_ITEM {
+        int quantity
+        float price
+    }
+```
+
+### Результат (как это выглядит в Obsidian):
+
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : includes
+    
+    CUSTOMER {
+        string name
+        string email
+        string address
+    }
+    ORDER {
+        int id
+        date orderDate
+        string status
+    }
+    PRODUCT {
+        string sku
+        string name
+        float price
+    }
+    LINE_ITEM {
+        int quantity
+        float price
+    }
+```
+
+## Советы для Obsidian
+
+- Используйте режим "Live Preview" для мгновенного отображения изменений.
+- Диаграммы сохраняются как обычный текст в заметке.
+- Можно экспортировать заметку в PDF, диаграммы сохранятся как изображения.
+
+
+---
 
 # Интеграция с Angular
 
@@ -2684,7 +3793,9 @@ export class ThemeService {
 - [Mermaid JS](https://mermaid.js.org/)
 - [ Reactive Forms в Angular](https://angular.io/guide/reactive-forms)
 
+
 ---
+
 # Прямое использование в HTML/JS
 
 Mermaid можно использовать напрямую в HTML-страницах без каких-либо фреймворков. Это самый простой способ начать работу.
@@ -3220,7 +4331,9 @@ gantt
 - [CDN jsDelivr](https://www.jsdelivr.com/package/npm/mermaid)
 - [Marked.js для Markdown](https://marked.js.org/)
 
+
 ---
+
 # Интеграция с React
 
 Mermaid отлично работает в React-приложениях. Рассмотрим несколько способов подключения.
@@ -3498,7 +4611,9 @@ function DocumentationViewer() {
 - [mermaid-react на GitHub](https://github.com/mermaid-js/mermaid-react)
 - [Примеры React компонентов](https://github.com/mermaid-js/mermaid/tree/develop/packages/mermaid/src/docs)
 
+
 ---
+
 # Интеграция с Vue.js
 
 Mermaid легко интегрируется в приложения на Vue.js. Рассмотрим несколько подходов.
@@ -3971,1041 +5086,3 @@ const updateDiagram = (newData) => {
 - [Vue.js официальная документация](https://vuejs.org/)
 - [Nuxt.js документация](https://nuxt.com/)
 - [Mermaid JS](https://mermaid.js.org/)
-
----
-
-# Гайды по платформам
-
-# Интеграция с GitHub и GitLab
-
-GitHub и GitLab автоматически рендерят диаграммы Mermaid в markdown-файлах, что делает их идеальными платформами для документации.
-
-## GitHub
-
-### Автоматический рендеринг
-
-GitHub поддерживает Mermaid начиная с 2022 года. Диаграммы рендерятся автоматически в:
-- README.md
-- Файлах документации (.md)
-- Issues и Pull Requests
-- Wiki
-
-**Пример:**
-````markdown
-```mermaid
-graph LR
-    A[GitHub Markdown] --> B[Автоматический рендеринг]
-    B --> C[SVG изображение]
-```
-````
-
-**Результат:**
-```mermaid
-graph LR
-    A[GitHub Markdown] --> B[Автоматический рендеринг]
-    B --> C[SVG изображение]
-```
-
-### Использование в README
-
-Просто добавьте код диаграммы в markdown:
-
-````markdown
-````markdown
-```mermaid
-sequenceDiagram
-    participant Dev as Разработчик
-    participant GH as GitHub
-    
-    Dev->>GH: Push commit с .md файлом
-    GH->>GH: Обработка markdown
-    GH->>Dev: Отображение диаграммы
-```
-````
-
-**Результат:**
-```mermaid
-sequenceDiagram
-    participant Dev as Разработчик
-    participant GH as GitHub
-    
-    Dev->>GH: Push commit с .md файлом
-    GH->>GH: Обработка markdown
-    GH->>Dev: Отображение диаграммы
-```
-````
-
-Результат:
-
-````markdown
-```mermaid
-sequenceDiagram
-    participant Dev as Разработчик
-    participant GH as GitHub
-    
-    Dev->>GH: Push commit с .md файлом
-    GH->>GH: Обработка markdown
-    GH->>Dev: Отображение диаграммы
-```
-````
-
-**Результат:**
-```mermaid
-sequenceDiagram
-    participant Dev as Разработчик
-    participant GH as GitHub
-    
-    Dev->>GH: Push commit с .md файлом
-    GH->>GH: Обработка markdown
-    GH->>Dev: Отображение диаграммы
-```
-
-### GitHub Actions для генерации
-
-Для создания изображений из диаграмм:
-
-```yaml
-name: Generate Mermaid Diagrams
-
-on: [push]
-
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: Install mermaid-cli
-        run: npm install -g @mermaid-js/mermaid-cli
-      
-      - name: Generate diagrams
-        run: |
-          mmdc -i docs/diagram.mmd -o docs/diagram.png
-          
-      - name: Commit generated images
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add docs/*.png
-          git commit -m "Generate diagrams" || echo "No changes"
-          git push
-```
-
-### Особенности GitHub
-
-| Функция | Поддержка |
-|---------|-----------|
-| Рендеринг в README | ✅ Да |
-| Рендеринг в Issues | ✅ Да |
-| Рендеринг в PR | ✅ Да |
-| Кастомные темы | ⚠️ Ограничено |
-| Интерактивность | ❌ Нет |
-| Экспорт в PNG/SVG | ⚠️ Через Actions |
-
-## GitLab
-
-### Автоматический рендеринг
-
-GitLab также поддерживает Mermaid в markdown:
-
-````markdown
-```mermaid
-graph TD
-    A[GitLab] --> B[Native Support]
-    B --> C[Version 13.0+]
-```
-````
-
-**Результат:**
-```mermaid
-graph TD
-    A[GitLab] --> B[Native Support]
-    B --> C[Version 13.0+]
-```
-
-### Использование в GitLab
-
-````markdown
-````markdown
-```mermaid
-classDiagram
-    class Project {
-        +String name
-        +Array files
-        +save()
-    }
-    class Repository {
-        +clone()
-        +push()
-    }
-    Project --> Repository
-```
-````
-
-**Результат:**
-```mermaid
-classDiagram
-    class Project {
-        +String name
-        +Array files
-        +save()
-    }
-    class Repository {
-        +clone()
-        +push()
-    }
-    Project --> Repository
-```
-````
-
-Результат:
-
-````markdown
-```mermaid
-classDiagram
-    class Project {
-        +String name
-        +Array files
-        +save()
-    }
-    class Repository {
-        +clone()
-        +push()
-    }
-    Project --> Repository
-```
-````
-
-**Результат:**
-```mermaid
-classDiagram
-    class Project {
-        +String name
-        +Array files
-        +save()
-    }
-    class Repository {
-        +clone()
-        +push()
-    }
-    Project --> Repository
-```
-
-### GitLab CI/CD для генерации
-
-```yaml
-generate_diagrams:
-  stage: build
-  image: node:18
-  script:
-    - npm install -g @mermaid-js/mermaid-cli
-    - mkdir -p public/diagrams
-    - for file in docs/*.mmd; do
-        mmdc -i $file -o public/diagrams/$(basename $file .mmd).png;
-      done
-  artifacts:
-    paths:
-      - public/diagrams/
-```
-
-## Сравнение платформ
-
-````markdown
-```mermaid
-quadrantChart
-    title "Сравнение поддержки Mermaid"
-    x-axis "Меньше функций" --> "Больше функций"
-    y-axis "Сложнее" --> "Проще"
-    quadrant-1 "Рекомендуемые"
-    quadrant-2 "Ограниченные"
-    quadrant-3 "Не рекомендуются"
-    quadrant-4 "Продвинутые"
-    GitHub: [0.8, 0.9]
-    GitLab: [0.75, 0.85]
-    Notion: [0.3, 0.7]
-    Custom Site: [0.95, 0.4]
-```
-````
-
-**Результат:**
-```mermaid
-quadrantChart
-    title "Сравнение поддержки Mermaid"
-    x-axis "Меньше функций" --> "Больше функций"
-    y-axis "Сложнее" --> "Проще"
-    quadrant-1 "Рекомендуемые"
-    quadrant-2 "Ограниченные"
-    quadrant-3 "Не рекомендуются"
-    quadrant-4 "Продвинутые"
-    GitHub: [0.8, 0.9]
-    GitLab: [0.75, 0.85]
-    Notion: [0.3, 0.7]
-    Custom Site: [0.95, 0.4]
-```
-
-## Лучшие практики
-
-### 1. Версионирование диаграмм
-
-Храните исходный код диаграмм в отдельных `.mmd` файлах:
-
-```
-docs/
-├── architecture.mmd
-├── flowchart.mmd
-└── README.md (ссылается на .mmd файлы)
-```
-
-### 2. Документирование
-
-Добавляйте комментарии к сложным диаграммам:
-
-````markdown
-<!-- DIAGRAM: Architecture Overview -->
-<!-- UPDATED: 2024-01-15 -->
-```mermaid
-graph TD
-    A[Frontend] --> B[API Gateway]
-    B --> C[Microservice 1]
-    B --> D[Microservice 2]
-    C --> E[(Database)]
-    D --> E
-```
-````
-
-**Результат:**
-```mermaid
-graph TD
-    A[Frontend] --> B[API Gateway]
-    B --> C[Microservice 1]
-    B --> D[Microservice 2]
-    C --> E[(Database)]
-    D --> E
-```
-
-### 3. Оптимизация
-
-- Избегайте слишком больших диаграмм (>100 элементов)
-- Разбивайте сложные схемы на несколько частей
-- Используйте ссылки между диаграммами
-
-## Примеры использования
-
-### Документация проекта
-
-````markdown
-```mermaid
-mindmap
-  root((Проект))
-    Документация
-      README.md
-      Архитектура
-      API
-    Код
-      Источник
-      Тесты
-    CI/CD
-      Сборка
-      Деплой
-```
-````
-
-**Результат:**
-```mermaid
-mindmap
-  root((Проект))
-    Документация
-      README.md
-      Архитектура
-      API
-    Код
-      Источник
-      Тесты
-    CI/CD
-      Сборка
-      Деплой
-```
-
-### Workflow разработки
-
-````markdown
-```mermaid
-flowchart TD
-    A[Идея] --> B[Issue]
-    B --> C[Branch]
-    C --> D[Код]
-    D --> E[PR]
-    E --> F{Code Review}
-    F -->|OK| G[Merge]
-    F -->|Changes| C
-    G --> H[Deploy]
-```
-````
-
-**Результат:**
-```mermaid
-flowchart TD
-    A[Идея] --> B[Issue]
-    B --> C[Branch]
-    C --> D[Код]
-    D --> E[PR]
-    E --> F{Code Review}
-    F -->|OK| G[Merge]
-    F -->|Changes| C
-    G --> H[Deploy]
-```
-
-## Заключение
-
-GitHub и GitLab предоставляют отличную поддержку Mermaid для документации. Для более сложных сценариев используйте GitHub Actions/GitLab CI для генерации изображений или создавайте собственные сайты документации.
-
----
-# Интеграция с Markdown
-
-Mermaid нативно поддерживается во многих Markdown-редакторах и платформах. Рассмотрим способы использования.
-
-## GitHub Flavored Markdown
-
-GitHub автоматически рендерит Mermaid диаграммы в файлах `.md`.
-
-### Пример использования
-
-```markdown
-# Архитектура проекта
-
-## Основная схема
-
-````markdown
-```mermaid
-graph TD
-    A[Client] --> B[Load Balancer]
-    B --> C[Server 1]
-    B --> D[Server 2]
-    C --> E[(Database)]
-    D --> E
-```
-````
-
-**Результат:**
-```mermaid
-graph TD
-    A[Client] --> B[Load Balancer]
-    B --> C[Server 1]
-    B --> D[Server 2]
-    C --> E[(Database)]
-    D --> E
-```
-
-## Процесс CI/CD
-
-````markdown
-```mermaid
-sequenceDiagram
-    participant Dev as Developer
-    participant Git as GitHub
-    participant CI as CI/CD
-    participant Deploy as Deployment
-    
-    Dev->>Git: git push
-    Git->>CI: Trigger pipeline
-    CI->>CI: Run tests
-    CI->>Deploy: Deploy if success
-    Deploy->>Deploy: Update production
-```
-````
-
-**Результат:**
-```mermaid
-sequenceDiagram
-    participant Dev as Developer
-    participant Git as GitHub
-    participant CI as CI/CD
-    participant Deploy as Deployment
-    
-    Dev->>Git: git push
-    Git->>CI: Trigger pipeline
-    CI->>CI: Run tests
-    CI->>Deploy: Deploy if success
-    Deploy->>Deploy: Update production
-```
-```
-
-**Важно:** На GitHub не требуется дополнительная настройка — просто используйте блоки кода с `mermaid`.
-
-## GitLab
-
-GitLab также поддерживает Mermaid из коробки.
-
-```markdown
-````markdown
-```mermaid
-gantt
-    title Проект разработки
-    dateFormat YYYY-MM-DD
-    section Дизайн
-    Макеты :des1, 2024-01-01, 7d
-    Прототип :after des1, 5d
-    section Разработка
-    Фронтенд :2024-01-15, 14d
-    Бэкенд :2024-01-15, 14d
-    section Тестирование
-    QA :2024-02-01, 7d
-```
-````
-
-**Результат:**
-```mermaid
-gantt
-    title Проект разработки
-    dateFormat YYYY-MM-DD
-    section Дизайн
-    Макеты :des1, 2024-01-01, 7d
-    Прототип :after des1, 5d
-    section Разработка
-    Фронтенд :2024-01-15, 14d
-    Бэкенд :2024-01-15, 14d
-    section Тестирование
-    QA :2024-02-01, 7d
-```
-```
-
-## Obsidian
-
-Obsidian имеет встроенную поддержку Mermaid.
-
-### Использование в Obsidian
-
-1. Создайте новую заметку
-2. Используйте стандартный синтаксис:
-
-````markdown
-````markdown
-```mermaid
-classDiagram
-    class Animal {
-        +int age
-        +String gender
-        +isMammal()
-        +mate()
-    }
-    
-    class Duck {
-        +swim()
-        +quack()
-    }
-    
-    class Fish {
-        -int sizeInFeet
-        -canEat()
-    }
-    
-    Animal <|-- Duck
-    Animal <|-- Fish
-```
-````
-
-**Результат:**
-```mermaid
-classDiagram
-    class Animal {
-        +int age
-        +String gender
-        +isMammal()
-        +mate()
-    }
-    
-    class Duck {
-        +swim()
-        +quack()
-    }
-    
-    class Fish {
-        -int sizeInFeet
-        -canEat()
-    }
-    
-    Animal <|-- Duck
-    Animal <|-- Fish
-```
-````
-
-### Настройка темы в Obsidian
-
-В настройках Obsidian можно выбрать тему для Mermaid:
-- Settings → Appearance → Mermaid theme
-- Доступные темы: default, forest, dark, neutral
-
-## Notion
-
-Notion **не поддерживает** Mermaid нативно, но есть обходные пути:
-
-### Способ 1: Экспорт в изображение
-
-1. Создайте диаграмму в [Mermaid Live Editor](https://mermaid.live/)
-2. Экспортируйте как PNG/SVG
-3. Вставьте изображение в Notion
-
-### Способ 2: Использование интеграций
-
-Используйте сервисы типа [Mermaid Chart](https://www.mermaidchart.com/) для встраивания.
-
-## VS Code
-
-### Расширение "Markdown Preview Mermaid Support"
-
-1. Установите расширение: `Markdown Preview Mermaid Support`
-2. Откройте `.md` файл
-3. Нажмите `Ctrl+Shift+V` (или `Cmd+Shift+V` на Mac)
-4. Диаграммы отобразятся автоматически
-
-### Расширение "Mermaid Preview"
-
-Для просмотра `.mmd` файлов:
-1. Установите `Mermaid Preview`
-2. Откройте файл `.mmd`
-3. Нажмите кнопку предпросмотра
-
-## Hugo
-
-### Установка плагина
-
-```bash
-# В config.toml
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.extensions]
-      [markup.goldmark.extensions.passthrough]
-        enable = true
-      [markup.goldmark.extensions.extras]
-        [markup.goldmark.extensions.extras.insert]
-          enable = true
-```
-
-### Использование в статьях
-
-```markdown
----
-title: "Моя статья"
-date: 2024-01-01
----
-
-## Диаграмма
-
-{{</* mermaid */>}}
-graph LR
-    A[Start] --> B[Process]
-    B --> C[End]
-{{</* /mermaid */>}}
-```
-
-## Jekyll
-
-### Плагин jekyll-mermaid
-
-1. Добавьте в `_config.yml`:
-
-```yaml
-plugins:
-  - jekyll-mermaid
-```
-
-2. Включите в layout:
-
-```html
-<!-- _layouts/default.html -->
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
-```
-
-3. Используйте в постах:
-
-```markdown
-````markdown
-```mermaid
-pie
-    "Apples" : 40
-    "Oranges" : 30
-    "Bananas" : 20
-    "Other" : 10
-```
-````
-
-**Результат:**
-```mermaid
-pie
-    "Apples" : 40
-    "Oranges" : 30
-    "Bananas" : 20
-    "Other" : 10
-```
-```
-
-## Docusaurus
-
-### Настройка
-
-1. Установите плагин:
-
-```bash
-npm install @docusaurus/theme-mermaid
-```
-
-2. Добавьте в `docusaurus.config.js`:
-
-```javascript
-module.exports = {
-  themes: ['@docusaurus/theme-mermaid'],
-  markdown: {
-    mermaid: true,
-  },
-};
-```
-
-3. Используйте в документах:
-
-```markdown
-````markdown
-```mermaid
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE_ITEM : contains
-    PRODUCT ||--o{ LINE_ITEM : includes
-    
-    CUSTOMER {
-        string name
-        string email
-    }
-    ORDER {
-        int id
-        string status
-        float total
-    }
-    PRODUCT {
-        string name
-        float price
-    }
-    LINE_ITEM {
-        int quantity
-        float price
-    }
-```
-````
-
-**Результат:**
-```mermaid
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE_ITEM : contains
-    PRODUCT ||--o{ LINE_ITEM : includes
-    
-    CUSTOMER {
-        string name
-        string email
-    }
-    ORDER {
-        int id
-        string status
-        float total
-    }
-    PRODUCT {
-        string name
-        float price
-    }
-    LINE_ITEM {
-        int quantity
-        float price
-    }
-```
-```
-
-## MkDocs Material
-
-Как в нашем проекте:
-
-```yaml
-# mkdocs.yml
-markdown_extensions:
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid
-
-plugins:
-  - mermaid2
-```
-
-## Pandoc
-
-Конвертация Markdown с Mermaid в PDF/HTML:
-
-```bash
-# Установка фильтра
-npm install -g mermaid-filter
-
-# Конвертация
-pandoc input.md --filter mermaid-filter -o output.pdf
-```
-
-## Сравнение платформ
-
-| Платформа | Поддержка | Настройка | Примечания |
-|-----------|-----------|-----------|------------|
-| GitHub | ✅ Нативная | Не требуется | Автоматический рендеринг |
-| GitLab | ✅ Нативная | Не требуется | Полная поддержка |
-| Obsidian | ✅ Нативная | Минимальная | Выбор темы в настройках |
-| Notion | ❌ Нет | Требуется экспорт | Через изображения |
-| VS Code | ✅ Через расширения | Установка плагина | Несколько вариантов |
-| Hugo | ⚠️ Частичная | Конфигурация | Требует настройки |
-| Jekyll | ⚠️ Через плагины | Установка плагина | Дополнительный шаг |
-| Docusaurus | ✅ Через тему | Установка темы | Официальная поддержка |
-| MkDocs | ✅ Через плагин | Настройка YAML | Как в этом проекте |
-
-## Советы по использованию
-
-1. **Всегда проверяйте рендеринг** на целевой платформе
-2. **Используйте простые конструкции** для лучшей совместимости
-3. **Тестируйте на мобильных устройствах** — некоторые платформы могут иметь ограничения
-4. **Сохраняйте исходный код диаграмм** в репозитории для версионирования
-5. **Используйте комментарии** в сложных диаграммах:
-
-````markdown
-```mermaid
-graph TD
-    %% Это комментарий
-    A[Start] --> B[Process]
-```
-````
-
-**Результат:**
-```mermaid
-graph TD
-    %% Это комментарий
-    A[Start] --> B[Process]
-```
-
-## Полезные ссылки
-
-- [Mermaid Live Editor](https://mermaid.live/)
-- [Документация GitHub](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
-- [Obsidian Help](https://help.obsidian.md/How+to/Create+diagrams+with+Mermaid)
-- [Docusaurus Mermaid](https://docusaurus.io/docs/markdown-features/diagrams)
-
----
-# Интеграция с Notion
-
-Notion — популярная платформа для заметок и управления проектами. Хотя прямая поддержка Mermaid в Notion ограничена, существуют способы использования диаграмм.
-
-## Способы интеграции
-
-### 1. Использование сторонних виджетов
-
-Самый простой способ — использовать сервисы-посредники:
-
-1. Создайте диаграмму в [Mermaid Live Editor](https://mermaid.live/)
-2. Скопируйте ссылку на диаграмму
-3. Используйте сервисы вроде [Indify](https://indify.co/) или [Super.so](https://super.so/) для вставки
-
-**Пример:**
-````markdown
-```mermaid
-graph TD
-    A[Notion] --> B[Виджет]
-    B --> C[Mermaid Diagram]
-```
-````
-
-**Результат:**
-```mermaid
-graph TD
-    A[Notion] --> B[Виджет]
-    B --> C[Mermaid Diagram]
-```
-
-### 2. Экспорт в изображение
-
-Для статических диаграмм:
-
-1. Создайте диаграмму в Mermaid Live Editor
-2. Экспортируйте как PNG/SVG
-3. Загрузите изображение в Notion
-
-````markdown
-```mermaid
-sequenceDiagram
-    participant User
-    participant Notion
-    participant Image
-    
-    User->>Mermaid Live: Создать диаграмму
-    Mermaid Live->>User: Экспорт PNG
-    User->>Notion: Загрузка изображения
-```
-````
-
-**Результат:**
-```mermaid
-sequenceDiagram
-    participant User
-    participant Notion
-    participant Image
-    
-    User->>Mermaid Live: Создать диаграмму
-    Mermaid Live->>User: Экспорт PNG
-    User->>Notion: Загрузка изображения
-```
-
-### 3. Использование API (для разработчиков)
-
-Для автоматизации можно использовать Notion API:
-
-```javascript
-// Пример скрипта для генерации и загрузки диаграмм
-const { Client } = require('@notionhq/client');
-const mermaid = require('mermaid');
-const fs = require('fs');
-
-async function addDiagramToNotion(pageId, mermaidCode) {
-  // Генерация SVG
-  const { svg } = await mermaid.render('diagram', mermaidCode);
-  
-  // Сохранение и загрузка в Notion
-  fs.writeFileSync('diagram.svg', svg);
-  // ... код загрузки через API
-}
-```
-
-## Ограничения
-
-| Возможность | Статус |
-|------------|--------|
-| Рендеринг Mermaid | ❌ Не поддерживается нативно |
-| Изображения | ✅ Полная поддержка |
-| Сторонние виджеты | ✅ Работают через embed |
-| Интерактивность | ⚠️ Только через виджеты |
-
-## Рекомендации
-
-1. **Для документации**: используйте экспорт в PNG/SVG
-2. **Для презентаций**: применяйте сторонние виджеты
-3. **Для автоматизации**: пишите скрипты с использованием API
-
-## Альтернативы
-
-Если нужна полноценная поддержка Mermaid:
-- **Obsidian** — полная поддержка из коробки
-- **GitHub/GitLab** — рендеринг в markdown
-- **Собственный сайт** — через MkDocs + плагин mermaid2
-
-````markdown
-```mermaid
-mindmap
-  root((Выбор платформы))
-    Notion
-      Виджеты
-      Изображения
-    Obsidian
-      Нативная поддержка
-    GitHub
-      Авто-рендеринг
-```
-````
-
-**Результат:**
-```mermaid
-mindmap
-  root((Выбор платформы))
-    Notion
-      Виджеты
-      Изображения
-    Obsidian
-      Нативная поддержка
-    GitHub
-      Авто-рендеринг
-```
-
----
-# Интеграция с Obsidian
-
-Obsidian имеет встроенную поддержку Mermaid. Вам не нужно устанавливать плагины, просто используйте блоки кода.
-
-## Как использовать
-
-1. Создайте новую заметку.
-2. Вставьте блок кода с языком `mermaid`.
-3. Переключитесь в режим просмотра (Preview), чтобы увидеть диаграмму.
-
-## Пример: ER Диаграмма (Сущность-Связь)
-
-### Исходный код (для копирования):
-
-```text
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE_ITEM : contains
-    PRODUCT ||--o{ LINE_ITEM : includes
-    
-    CUSTOMER {
-        string name
-        string email
-        string address
-    }
-    ORDER {
-        int id
-        date orderDate
-        string status
-    }
-    PRODUCT {
-        string sku
-        string name
-        float price
-    }
-    LINE_ITEM {
-        int quantity
-        float price
-    }
-```
-
-### Результат (как это выглядит в Obsidian):
-
-```mermaid
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE_ITEM : contains
-    PRODUCT ||--o{ LINE_ITEM : includes
-    
-    CUSTOMER {
-        string name
-        string email
-        string address
-    }
-    ORDER {
-        int id
-        date orderDate
-        string status
-    }
-    PRODUCT {
-        string sku
-        string name
-        float price
-    }
-    LINE_ITEM {
-        int quantity
-        float price
-    }
-```
-
-## Советы для Obsidian
-
-- Используйте режим "Live Preview" для мгновенного отображения изменений.
-- Диаграммы сохраняются как обычный текст в заметке.
-- Можно экспортировать заметку в PDF, диаграммы сохранятся как изображения.
-
----
